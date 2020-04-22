@@ -21,6 +21,21 @@ pages
 knitr::opts_chunk$set(out.width = '100%', dpi=600)
 ```
 
+- What work has been done on landscape mrio?
+- What work has addressed resilience and stability?
+- What ENA metrics have been or could be applied?
+
+# Analyses
+
+- keyword+title: mrio & landscape
+- keyword+title: mrio & ena
+- keyword+title: " & resilience+stability
+- keyword+title: mrio & disturbance(climate change, other)
+- keyword+title: coupled-human natural systems
+- keyword+title: ena & resilience+stability & metrics
+
+
+
 [@ISI:000523497000005]
 
 ```{r figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
