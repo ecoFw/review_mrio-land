@@ -1,0 +1,23 @@
+Web of Science Search
+
+Wed 22 Apr 2020 02:08:04 PM EDT
+
+Results: 4,155 (from Web of Science Core Collection)
+
+You searched for: 
+
+TOPIC: ("input-output analysis") OR 
+TOPIC: ("input output analysis") OR 
+TOPIC: ("multi-regional input-output") OR 
+TOPIC: ("multiregional input-output") OR 
+TOPIC: ("multi-regional input output") OR 
+TOPIC: ("multiregional input output") OR 
+TOPIC: ("multi regional input-output") OR 
+TOPIC: ("multi regional input output") OR 
+TOPIC: ("economic input-output") OR
+TOPIC: ("economic input output")
+
+Timespan: All years. 
+
+Indexes: SCI-EXPANDED, SSCI, A&HCI, CPCI-S, CPCI-SSH, BKCI-S,
+	 BKCI-SSH, ESCI, CCR-EXPANDED, IC
