@@ -2,7 +2,7 @@
 title: "REVIEW: Analysis of the MRIO embodied landscape literature"
 author: MK Lau
 date: 
-output: pdf_document
+output: md_document
 fig_caption: yes
 bibliography: refs.bib
 always_allow_html: yes
@@ -16,8 +16,7 @@ header-includes:
 ---
 
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
-knitr::opts_chunk$set(fig.pos = 'p') # Places figures on their own
-pages
+knitr::opts_chunk$set(fig.pos = 'p') # Places figures on their own pages
 knitr::opts_chunk$set(out.width = '100%', dpi=600)
 ```
 
@@ -36,7 +35,7 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 
 
-[@ISI:000523497000005]
+
 
 ```{r figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
 plot(1:5)
@@ -47,9 +46,9 @@ plot(1:5)
 
 
 ```{r tabRef, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
-data(iris)
-df <- head(iris)
-knitr::kable(df, caption = "Table caption here...", booktabs = TRUE)
+# data(iris)
+# df <- head(iris)
+# knitr::kable(df, caption = "Table caption here...", booktabs = TRUE)
 ```
 
 \@ref(tab:tabRef)
