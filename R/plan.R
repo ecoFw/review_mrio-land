@@ -1,5 +1,6 @@
 plan <- drake_plan(
 ### Load data
+    
 ### Data wrangling
 ### Data checks
 ### Analyses
