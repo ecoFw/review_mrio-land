@@ -145,7 +145,7 @@ type: review
     ## [18] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                    
     ## [19] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"
 
-Literature Reivew: Methods and Background
+Literature Review: Methods and Background
 =========================================
 
     kw <- gsub(";", "", unlist(strsplit(io.bdf[, "DE"], split = "; ")))
@@ -153,9 +153,9 @@ Literature Reivew: Methods and Background
     kw <- unlist(strsplit(kw, " "))
     kw.tab <- table(kw)
 
-<img src="report_files/figure-markdown_strict/figRef-1.png" alt="Figure caption here" width="100%" />
+<img src="report_files/figure-markdown_strict/art-year-1.png" alt="Article count by year" width="100%" />
 <p class="caption">
-Figure caption here
+Article count by year
 </p>
 
 <img src="report_files/figure-markdown_strict/kw-treemap-1.png" alt="Keyword treemap" width="100%" />
@@ -163,7 +163,59 @@ Figure caption here
 Keyword treemap
 </p>
 
-@ref(fig:figRef)
+@ref(fig:treemap)
+
+<table>
+<caption>Topic table</caption>
+<thead>
+<tr class="header">
+<th align="left">topic</th>
+<th align="right">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Land</td>
+<td align="right">72</td>
+</tr>
+<tr class="even">
+<td align="left">Network</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">ENA</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Resilience</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Disturbance</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Climate Change</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="left">Coupled Human-Natural</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Metrics</td>
+<td align="right">65</td>
+</tr>
+<tr class="odd">
+<td align="left">Land Metrics</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">Review or Overview</td>
+<td align="right">19</td>
+</tr>
+</tbody>
+</table>
 
 @ref(tab:tabRef)
 

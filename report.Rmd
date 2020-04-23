@@ -163,7 +163,7 @@ io.bdf[q.rev | q.ov, "TI"]
 
 
 
-# Literature Reivew: Methods and Background
+# Literature Review: Methods and Background
 
 ```{r key-words, echo = TRUE, message = FALSE, warning = FALSE}
 
@@ -174,7 +174,7 @@ kw.tab <- table(kw)
 
 ```
 
-```{R figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
+```{R art-year, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Article count by year"}
 
 plot(melt(table(io.bdf[, "PY"])), 
 	type = "l", xlab = "", ylab = "Articles")
@@ -202,13 +202,18 @@ treemap(data, index=c("group"), vSize="value", type="index",
 
 ```
 
-\@ref(fig:figRef) 
+\@ref(fig:treemap) 
 
 
-```{r tabRef, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
-# data(iris)
-# df <- head(iris)
-# knitr::kable(df, caption = "Table caption here...", booktabs = TRUE)
+```{r topic-table, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+
+q.all <- list(q.ml, q.net, q.ena, q.res, q.md, q.mc, q.chns,
+              q.met, q.met.land, (q.rev | q.ov))
+q.labs <- c("Land", "Network", "ENA", "Resilience", "Disturbance", "Climate Change", 
+            "Coupled Human-Natural", "Metrics", "Land Metrics", "Review or Overview")
+q.df <- data.frame(topic = q.labs, count = unlist(lapply(q.all, sum)))
+knitr::kable(q.df, caption = "Topic table", booktabs = TRUE)
+
 ```
 
 \@ref(tab:tabRef)
