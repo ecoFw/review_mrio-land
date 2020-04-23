@@ -2,7 +2,7 @@ plan <- drake_plan(
 ### Load data
     io.raw = convert2df("data/wos_io.bib", dbsource = "wos", format = "bibtex"),
 ### Data wrangling
-    io.bdf = fix_bdf(io.raw),
+    io.bdf = fix_bdf(io.raw, include.books = FALSE),
 ### Data checks
     checks = check_data(io.bdf),
 ### Analyses

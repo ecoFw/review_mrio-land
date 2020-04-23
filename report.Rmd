@@ -112,7 +112,6 @@ q.mc <- grepl("^CLIMATE", io.bdf[, "TI"]) |
     grepl("^CLIMATE", io.bdf[, "DE"]) | 
     grepl(" CLIMATE", io.bdf[, "TI"]) | 
     grepl(" CLIMATE", io.bdf[, "DE"]) 
-
 q.md <- grepl("^DISTURB", io.bdf[, "TI"]) | 
     grepl("^DISTURB", io.bdf[, "DE"]) | 
     grepl(" DISTURB", io.bdf[, "TI"]) | 
@@ -124,27 +123,44 @@ q.md <- grepl("^DISTURB", io.bdf[, "TI"]) |
 
 ```{r mrio-chns, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.res.abs & q.ml, "AB"]
+q.chns <- grepl("HUMAN-NATURAL", io.bdf[, "TI"]) | 
+    grepl("HUMAN-NATURAL", io.bdf[, "DE"]) |
+    grepl("HUMAN-NATURAL", io.bdf[, "AB"]) |
+    grepl("HUMAN NATURAL", io.bdf[, "TI"]) | 
+    grepl("HUMAN NATURAL", io.bdf[, "DE"]) |
+    grepl("HUMAN NATURAL", io.bdf[, "AB"]) 
 
 ```
 ## keyword+title: ena & resilience+stability & metrics
 
 ```{r mrio-met, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.res.abs & q.ml, "AB"]
+q.met <- grepl(" METRIC", io.bdf[, "TI"]) | 
+    grepl(" METRIC", io.bdf[, "DE"]) |
+    grepl(" METRIC", io.bdf[, "AB"]) |
+    grepl("^METRIC", io.bdf[, "TI"]) | 
+    grepl("^METRIC", io.bdf[, "DE"]) |
+    grepl("^METRIC", io.bdf[, "AB"]) & 
+    q.net &
+    q.res
+q.met.land <- q.met & q.ml
 
 ```
+
 ## type: review 
 
 ```{r mrio-rev, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.res.abs & q.ml, "AB"]
+q.rev <- grepl("REVIEW", io.bdf[, "DT"]) | 
+    grepl("REVIEW", io.bdf[, "DE"]) | 
+    grepl("REVIEW", io.bdf[, "TI"]) 
+q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
+    grepl("OVERVIEW", io.bdf[, "DE"]) | 
+    grepl("OVERVIEW", io.bdf[, "TI"]) 
+io.bdf[q.rev | q.ov, "TI"]
+
 
 ```
-
-
-
-
 
 ```{r figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
 plot(1:5)

@@ -6,7 +6,7 @@
 #'
 #' @return Fixed dataframe
 
-fix_bdf <- function(df, include.books = FALSE, duplicate.title = TRUE){
+fix_bdf <- function(df, include.books = FALSE){
     # missing early access year field years
     ead <- strsplit(df[, "early.access.date"], split = " ")
     df[is.na(df[, "PY"]), "PY"] <- do.call(rbind, ead)[is.na(df[, "PY"]), 2]
@@ -17,11 +17,7 @@ fix_bdf <- function(df, include.books = FALSE, duplicate.title = TRUE){
         df <- df[grepl("ARTICLE", df[, "DT"]), ]
     }
     ## remove duplicates by title and UID
-    if (duplicate.title){
-        df <- df[!(duplicated(df[, "TI"])), ]
-    }else{
-        df <- df[!(duplicated(df[, "UT"])), ]
-    }
+    df <- df[!(duplicated(df[, "TI"]) | duplicated(df[, "UT"])), ]
     return(df)
 }
 
