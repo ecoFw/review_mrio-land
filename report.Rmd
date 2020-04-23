@@ -176,7 +176,8 @@ kw.tab <- table(kw)
 
 ```{R figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
 
-plot(melt(table(io.bdf[, "PY"])))
+plot(melt(table(io.bdf[, "PY"])), 
+	type = "l", xlab = "", ylab = "Articles")
 
 ```
 
@@ -184,6 +185,7 @@ plot(melt(table(io.bdf[, "PY"])))
 ```{R kw-treemap, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Keyword treemap"}
 
 data <- melt(kw.tab)
+data <- data[order(data[, "value"], decreasing = TRUE), ][1:25, ]
 colnames(data) <- c("group", "value")
 treemap(data, index=c("group"), vSize="value", type="index",
         fontsize.labels=c(15),
