@@ -174,7 +174,7 @@ kw.tab <- table(kw)
 
 ```
 
-```{R art-year, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Article count by year"}
+```{R art-year, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
 
 plot(melt(table(io.bdf[, "PY"])), 
 	type = "l", xlab = "", ylab = "Articles")
@@ -182,7 +182,7 @@ plot(melt(table(io.bdf[, "PY"])),
 ```
 
 
-```{R kw-treemap, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Keyword treemap"}
+```{R kw-treemap, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
 
 data <- melt(kw.tab)
 data <- data[order(data[, "value"], decreasing = TRUE), ][1:25, ]
@@ -202,7 +202,7 @@ treemap(data, index=c("group"), vSize="value", type="index",
 
 ```
 
-\@ref(fig:treemap) 
+
 
 
 ```{r topic-table, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
@@ -212,11 +212,9 @@ q.all <- list(q.ml, q.net, q.ena, q.res, q.md, q.mc, q.chns,
 q.labs <- c("Land", "Network", "ENA", "Resilience", "Disturbance", "Climate Change", 
             "Coupled Human-Natural", "Metrics", "Land Metrics", "Review or Overview")
 q.df <- data.frame(topic = q.labs, count = unlist(lapply(q.all, sum)))
-knitr::kable(q.df, caption = "Topic table", booktabs = TRUE)
+knitr::kable(q.df, caption = "", booktabs = TRUE)
 
 ```
-
-\@ref(tab:tabRef)
 
 
 # References

@@ -153,20 +153,11 @@ Literature Review: Methods and Background
     kw <- unlist(strsplit(kw, " "))
     kw.tab <- table(kw)
 
-<img src="report_files/figure-markdown_strict/art-year-1.png" alt="Article count by year" width="100%" />
-<p class="caption">
-Article count by year
-</p>
+<img src="report_files/figure-markdown_strict/art-year-1.png" width="100%" />
 
-<img src="report_files/figure-markdown_strict/kw-treemap-1.png" alt="Keyword treemap" width="100%" />
-<p class="caption">
-Keyword treemap
-</p>
-
-@ref(fig:treemap)
+<img src="report_files/figure-markdown_strict/kw-treemap-1.png" width="100%" />
 
 <table>
-<caption>Topic table</caption>
 <thead>
 <tr class="header">
 <th align="left">topic</th>
@@ -216,8 +207,6 @@ Keyword treemap
 </tr>
 </tbody>
 </table>
-
-@ref(tab:tabRef)
 
 References
 ==========
