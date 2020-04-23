@@ -49,11 +49,69 @@ Analyses
 keyword+title: mrio & landscape
 -------------------------------
 
--   keyword+title: mrio & ena
--   keyword+title: " & resilience+stability
--   keyword+title: mrio & disturbance(climate change, other)
--   keyword+title: coupled-human natural systems
--   keyword+title: ena & resilience+stability & metrics
+    q.ml <- grepl("^LAND", io.bdf[, "DE"]) | 
+        grepl("^LAND", io.bdf[, "TI"]) | 
+        grepl(" LAND", io.bdf[, "DE"]) | 
+        grepl(" LAND", io.bdf[, "TI"]) 
+
+keyword+title: mrio & network/ena
+---------------------------------
+
+    q.net <- (grepl("NETWORK ANALYS", io.bdf[, "DE"]) | 
+        grepl("NETWORK ANALYS", io.bdf[, "TI"])) & 
+        !(grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
+        grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]))
+    q.me <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
+        grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]) &
+        !(q.net)
+
+keyword+title: resilience
+-------------------------
+
+    q.res <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
+        grepl("^RESILIEN", io.bdf[, "DE"]) | 
+        grepl(" RESILIEN", io.bdf[, "TI"]) | 
+        grepl(" RESILIEN", io.bdf[, "DE"]) 
+    q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
+        grepl("^RESILIEN", io.bdf[, "DE"]) | 
+        grepl(" RESILIEN", io.bdf[, "TI"]) | 
+        grepl(" RESILIEN", io.bdf[, "DE"]) | 
+        grepl("^RESILIEN", io.bdf[, "AB"]) | 
+        grepl(" RESILIEN", io.bdf[, "AB"]) 
+
+keyword+title: disturbance(climate change, other)
+-------------------------------------------------
+
+    q.mc <- grepl("^CLIMATE", io.bdf[, "TI"]) | 
+        grepl("^CLIMATE", io.bdf[, "DE"]) | 
+        grepl(" CLIMATE", io.bdf[, "TI"]) | 
+        grepl(" CLIMATE", io.bdf[, "DE"]) 
+
+    q.md <- grepl("^DISTURB", io.bdf[, "TI"]) | 
+        grepl("^DISTURB", io.bdf[, "DE"]) | 
+        grepl(" DISTURB", io.bdf[, "TI"]) | 
+        grepl(" DISTURB", io.bdf[, "DE"]) 
+
+keyword+title: coupled-human natural systems
+--------------------------------------------
+
+    io.bdf[q.res.abs & q.ml, "AB"]
+
+    ## character(0)
+
+keyword+title: ena & resilience+stability & metrics
+---------------------------------------------------
+
+    io.bdf[q.res.abs & q.ml, "AB"]
+
+    ## character(0)
+
+type: review
+------------
+
+    io.bdf[q.res.abs & q.ml, "AB"]
+
+    ## character(0)
 
 <img src="report_files/figure-markdown_strict/figRef-1.png" alt="Figure caption here" width="100%" />
 <p class="caption">

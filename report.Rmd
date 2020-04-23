@@ -106,7 +106,7 @@ q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) |
 
 ## keyword+title: disturbance(climate change, other)
 
-```{r mrio-rev, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-dist, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.mc <- grepl("^CLIMATE", io.bdf[, "TI"]) | 
     grepl("^CLIMATE", io.bdf[, "DE"]) | 
@@ -122,14 +122,14 @@ q.md <- grepl("^DISTURB", io.bdf[, "TI"]) |
 
 ## keyword+title: coupled-human natural systems
 
-```{r mrio-rev, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-chns, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.res.abs & q.ml, "AB"]
 
 ```
 ## keyword+title: ena & resilience+stability & metrics
 
-```{r mrio-rev, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-met, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.res.abs & q.ml, "AB"]
 

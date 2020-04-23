@@ -6,21 +6,21 @@
 #'
 #' @return Fixed dataframe
 
-fix_bdf <- function(df, books = FALSE, duplicate.title = FALSE){
+fix_bdf <- function(df, include.books = FALSE, duplicate.title = TRUE){
     # missing early access year field years
     ead <- strsplit(df[, "early.access.date"], split = " ")
     df[is.na(df[, "PY"]), "PY"] <- do.call(rbind, ead)[is.na(df[, "PY"]), 2]
     ## limit to articles
-    if (books){
+    if (include.books){
         df <- df[grepl("ARTICLE", df[, "DT"]) | grepl("BOOK", df[, "DT"]), ]
     }else{
         df <- df[grepl("ARTICLE", df[, "DT"]), ]
     }
     ## remove duplicates by title and UID
     if (duplicate.title){
-        df <- df[duplicated(df[, "TI"]), ]
+        df <- df[!(duplicated(df[, "TI"])), ]
     }else{
-        df <- df[duplicated(df[, "UT"]), ]
+        df <- df[!(duplicated(df[, "UT"])), ]
     }
     return(df)
 }
@@ -35,7 +35,11 @@ fix_bdf <- function(df, books = FALSE, duplicate.title = FALSE){
 
 check_data <- function(df){
     checks <- data.frame()
-    checks["count", 1] <- nrow(df) == 4155
+    if (any(grepl("BOOK", df[, "DT"]))){
+        checks["count", 1] <- nrow(df) == 3040
+    }else{
+        checks["count", 1] <- nrow(df) == 2944
+    }
     checks["years", 1] <- all(!(is.na(df[, "PY"])))
     if (all(checks[, 1])){
         print("Passed all checks.")
