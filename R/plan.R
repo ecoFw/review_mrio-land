@@ -6,6 +6,7 @@ plan <- drake_plan(
 ### Data checks
     checks = check_data(io.bdf),
 ### Analyses
+
 ### Analytical Checks
 ### Generate the manuscript
     report = rmarkdown::render(
