@@ -44,3 +44,17 @@ check_data <- function(df){
         return(rownames(checks)[!checks[, 1]])
     }
 }
+
+#' Remove special characters
+#' 
+#' @param x Character string
+#'
+#' @return String with special characters removed
+
+
+rm.spch <- function(x){
+    ch <- strsplit(toupper(x), split = "")[[1]]
+    ch <- ch[ch %in% c(LETTERS, " ")]
+    out <- paste(ch, collapse = "")
+    return(out)
+}

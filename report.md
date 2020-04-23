@@ -145,9 +145,22 @@ type: review
     ## [18] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                    
     ## [19] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"
 
+Literature Reivew: Methods and Background
+=========================================
+
+    kw <- gsub(";", "", unlist(strsplit(io.bdf[, "DE"], split = "; ")))
+    kw <- sapply(kw, rm.spch)
+    kw <- unlist(strsplit(kw, " "))
+    kw.tab <- table(kw)
+
 <img src="report_files/figure-markdown_strict/figRef-1.png" alt="Figure caption here" width="100%" />
 <p class="caption">
 Figure caption here
+</p>
+
+<img src="report_files/figure-markdown_strict/kw-treemap-1.png" alt="Keyword treemap" width="100%" />
+<p class="caption">
+Keyword treemap
 </p>
 
 @ref(fig:figRef)

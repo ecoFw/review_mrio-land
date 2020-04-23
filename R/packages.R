@@ -1,6 +1,6 @@
 ## Check for supporting packages
-cran.pkgs <- c("magrittr", "devtools", "beepr", "xtable", 
-               "bibliometrix", "drake", "visNetwork"
+cran.pkgs <- c("magrittr", "devtools", "beepr", "xtable", "reshape2",
+               "bibliometrix", "drake", "visNetwork", "treemap"
               )
 ## install packages that are not installed
 ## CRAN

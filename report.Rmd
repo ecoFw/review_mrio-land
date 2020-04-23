@@ -159,11 +159,44 @@ q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
     grepl("OVERVIEW", io.bdf[, "TI"]) 
 io.bdf[q.rev | q.ov, "TI"]
 
+```
+
+
+
+# Literature Reivew: Methods and Background
+
+```{r key-words, echo = TRUE, message = FALSE, warning = FALSE}
+
+kw <- gsub(";", "", unlist(strsplit(io.bdf[, "DE"], split = "; ")))
+kw <- sapply(kw, rm.spch)
+kw <- unlist(strsplit(kw, " "))
+kw.tab <- table(kw)
 
 ```
 
-```{r figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
-plot(1:5)
+```{R figRef, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Figure caption here"}
+
+plot(melt(table(io.bdf[, "PY"])))
+
+```
+
+
+```{R kw-treemap, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Keyword treemap"}
+
+data <- melt(kw.tab)
+colnames(data) <- c("group", "value")
+treemap(data, index=c("group"), vSize="value", type="index",
+        fontsize.labels=c(15),
+        fontcolor.labels=c("white"),
+        fontface.labels=c(2),
+        bg.labels=c("transparent"),
+        align.labels=list(
+            c("center", "center")
+        ),
+        overlap.labels=0.5,
+        inflate.labels=F,
+	)
+
 
 ```
 
