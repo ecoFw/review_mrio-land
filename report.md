@@ -160,53 +160,73 @@ Literature Review: Methods and Background
 <table>
 <thead>
 <tr class="header">
+<th></th>
 <th align="left">topic</th>
 <th align="right">count</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>Land</td>
 <td align="left">Land</td>
 <td align="right">72</td>
 </tr>
 <tr class="even">
+<td>Network</td>
 <td align="left">Network</td>
 <td align="right">35</td>
 </tr>
 <tr class="odd">
+<td>ENA</td>
 <td align="left">ENA</td>
 <td align="right">4</td>
 </tr>
 <tr class="even">
+<td>Resilience</td>
 <td align="left">Resilience</td>
 <td align="right">11</td>
 </tr>
 <tr class="odd">
+<td>Disturbance</td>
 <td align="left">Disturbance</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
+<td>Climate Change</td>
 <td align="left">Climate Change</td>
 <td align="right">84</td>
 </tr>
 <tr class="odd">
+<td>Coupled Human-Natural</td>
 <td align="left">Coupled Human-Natural</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
+<td>Metrics</td>
 <td align="left">Metrics</td>
 <td align="right">65</td>
 </tr>
 <tr class="odd">
+<td>Land Metrics</td>
 <td align="left">Land Metrics</td>
 <td align="right">3</td>
 </tr>
 <tr class="even">
+<td>Review or Overview</td>
 <td align="left">Review or Overview</td>
 <td align="right">19</td>
 </tr>
 </tbody>
 </table>
+
+    export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
+
+    ## [1] "Disturbance had length zero and was removed."
+    ## [1] "Coupled_Human-Natural had length zero and was removed."
+    ## [1] "Land.csv"               "Network.csv"            "ENA.csv"               
+    ## [4] "Resilience.csv"         "Climate_Change.csv"     "Metrics.csv"           
+    ## [7] "Land_Metrics.csv"       "Review_or_Overview.csv"
+    ## [1] "Successfully written to data/wos-mrio_query"
 
 References
 ==========

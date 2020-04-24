@@ -51,10 +51,56 @@ check_data <- function(df){
 #'
 #' @return String with special characters removed
 
-
 rm.spch <- function(x){
     ch <- strsplit(toupper(x), split = "")[[1]]
     ch <- ch[ch %in% c(LETTERS, " ")]
     out <- paste(ch, collapse = "")
     return(out)
+}
+
+#' Export a spreadsheet for review
+#'
+#' Create a spreadsheet for sorting articles by topic
+#'
+#' @param df Bibliometrix formatted dataframe
+#' @param ql Named list of logical query vectors
+#' @param dir Name of the directory to create
+#'
+#' @return NULL
+
+export_query <- function(df = "dataframe", ql = "query list", 
+                         dir = "output directory", overwrite = FALSE){
+    
+
+    names(ql) <- gsub(" ", "_", names(ql))
+
+    for (i in seq_along(ql)){
+        if (sum(ql[[i]]) == 0){
+            print(paste(names(ql)[i], "had length zero and was removed."))
+        }
+    }
+
+    ql <- ql[lapply(ql, sum) != 0]
+
+    out <- list()
+    for (i in seq_along(ql)){
+        topic <- rep(names(ql)[i], nrow(df[ql[[i]], ]))
+        notes <- rep("", nrow(df[ql[[i]], ]))
+        auth <- rownames(df[ql[[i]], ])
+        out[[i]] <- data.frame(topic, auth, df[ql[[i]], c("UT", "TI", "AB")], notes)
+        colnames(out[[i]]) <- c("TOPIC", "AUTHOR",  "UID", "TITLE", "ABSTRACT", "NOTES")
+        rownames(out[[i]]) <- seq(1, nrow(out[[i]]))
+    }
+    names(out) <- names(ql)
+
+    if (!(dir.exists(dir)) | overwrite){
+        if (!(dir.exists(dir))){dir.create(dir)}
+        for (i in seq_along(out)){
+            write.csv(out[[i]], file = paste0(dir, "/", names(out)[i], ".csv"))
+        }
+        print(paste0(names(out), ".csv"))
+        print(paste("Successfully written to", dir))
+    }else{
+        warning("Directory exists. Remove or set overwrite = TRUE.")
+    }
 }
