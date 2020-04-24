@@ -160,61 +160,61 @@ Literature Review: Methods and Background
 <table>
 <thead>
 <tr class="header">
-<th></th>
 <th align="left">topic</th>
 <th align="right">count</th>
+<th align="right">percent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Land</td>
 <td align="left">Land</td>
 <td align="right">72</td>
+<td align="right">2.45</td>
 </tr>
 <tr class="even">
-<td>Network</td>
 <td align="left">Network</td>
 <td align="right">35</td>
+<td align="right">1.19</td>
 </tr>
 <tr class="odd">
-<td>ENA</td>
 <td align="left">ENA</td>
 <td align="right">4</td>
+<td align="right">0.14</td>
 </tr>
 <tr class="even">
-<td>Resilience</td>
 <td align="left">Resilience</td>
 <td align="right">11</td>
+<td align="right">0.37</td>
 </tr>
 <tr class="odd">
-<td>Disturbance</td>
 <td align="left">Disturbance</td>
 <td align="right">0</td>
+<td align="right">0.00</td>
 </tr>
 <tr class="even">
-<td>Climate Change</td>
 <td align="left">Climate Change</td>
 <td align="right">84</td>
+<td align="right">2.85</td>
 </tr>
 <tr class="odd">
-<td>Coupled Human-Natural</td>
 <td align="left">Coupled Human-Natural</td>
 <td align="right">0</td>
+<td align="right">0.00</td>
 </tr>
 <tr class="even">
-<td>Metrics</td>
 <td align="left">Metrics</td>
 <td align="right">65</td>
+<td align="right">2.21</td>
 </tr>
 <tr class="odd">
-<td>Land Metrics</td>
 <td align="left">Land Metrics</td>
 <td align="right">3</td>
+<td align="right">0.10</td>
 </tr>
 <tr class="even">
-<td>Review or Overview</td>
 <td align="left">Review or Overview</td>
 <td align="right">19</td>
+<td align="right">0.65</td>
 </tr>
 </tbody>
 </table>

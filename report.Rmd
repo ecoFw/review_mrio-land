@@ -212,8 +212,11 @@ q.all <- list(q.ml, q.net, q.ena, q.res, q.md, q.mc, q.chns,
 q.labs <- c("Land", "Network", "ENA", "Resilience", "Disturbance", "Climate Change", 
             "Coupled Human-Natural", "Metrics", "Land Metrics", "Review or Overview")
 names(q.all) <- q.labs
-q.df <- data.frame(topic = q.labs, count = unlist(lapply(q.all, sum)))
-knitr::kable(q.df, caption = "", booktabs = TRUE)
+count <- unlist(lapply(q.all, sum))
+pct <- count / nrow(io.bdf) * 100
+pct <- round(pct, 2)
+q.df <- data.frame(topic = q.labs, count = count, percent = pct)
+knitr::kable(q.df, caption = "", booktabs = TRUE, row.names = FALSE)
 
 ```
 
