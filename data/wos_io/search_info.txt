@@ -19,17 +19,26 @@ Indexes: SCI-EXPANDED, SSCI, A&HCI, CPCI-S, CPCI-SSH, BKCI-S, BKCI-SSH, ESCI, CC
 
 savedrecs ([0-8]).csv
 
-Mon 27 Apr 2020 12:04:29 PM EDT
-Results: 192 (from Web of Science Core Collection)
+Mon 27 Apr 2020 16:24:29 PM EDT
+Results: 451 (from Web of Science Core Collection)
 You searched for: 
 TOPIC: (telecouple) OR 
 TOPIC: (telecoupling) OR
-TOPIC: ("land-systems science") OR 
-TOPIC: ("land-system science") OR
-TO PIC: ("land system science") OR 
-TOPIC: ("land systems science") OR
-TOPIC: (telecoupled)
+TOPIC: (telecoupled) OR
+TOPIC: (teleconnection)
 Timespan: All years. 
 Indexes: SCI-EXPANDED, SSCI, A&HCI, CPCI-S, CPCI-SSH, BKCI-S, BKCI-SSH, ESCI, CCR-EXPANDED, IC.
 
 savedrecs (9).csv
+
+Mon 27 Apr 2020 16:44:29 PM EDT
+Results: 67 (from Web of Science Core Collection)
+You searched for: 
+TOPIC: ("land-systems science") OR 
+TOPIC: ("land-system science") OR
+TO PIC: ("land system science") OR 
+TOPIC: ("land systems science") OR
+Timespan: All years. 
+Indexes: SCI-EXPANDED, SSCI, A&HCI, CPCI-S, CPCI-SSH, BKCI-S, BKCI-SSH, ESCI, CCR-EXPANDED, IC.
+
+savedrecs (10).csv
