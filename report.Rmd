@@ -198,11 +198,6 @@ io.bdf[q.met & q.ml, c("TI")]
 
 ```
 
-```{r papers-met-ena, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.met.land, c("TI")]
-
-```
 
 ## Resilience
 
