@@ -83,7 +83,7 @@ q.net <- (grepl("NETWORK ANALYS", io.bdf[, "DE"]) |
     grepl("NETWORK ANALYS", io.bdf[, "TI"])) & 
 	!(grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
     grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]))
-q.me <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
+q.ena <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
     grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]) &
     !(q.net)
 
