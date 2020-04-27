@@ -21,6 +21,8 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 ```
 
 
+
+
 - Resilience metrics for networks of embodied landscapes
   - Landscape context
   - Disturbances
@@ -225,6 +227,14 @@ knitr::kable(q.df, caption = "", booktabs = TRUE, row.names = FALSE)
 export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
 
 ```
+
+## Searched and Reviewed "Land" Query
+
+- Searched within queried papers and found papers with MRIO, network
+  or resilience
+- Need to add telecoupling and land-system science articles
+- Recompile using a cross-referencing = LAND & MRIO | NETWORK |
+  RESILIENCE | SUSTAINABILITY
 
 
 # References
