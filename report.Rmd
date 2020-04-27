@@ -20,6 +20,23 @@ knitr::opts_chunk$set(fig.pos = 'p') # Places figures on their own pages
 knitr::opts_chunk$set(out.width = '100%', dpi=600)
 ```
 
+# Overview
+
+- Why landscape?
+  - Major topics in landscape
+  - Resilience and sustainability
+- What has been done?
+- Why networks, why ENA?
+- What are the priorities?
+  - Climate change
+  - Land-use change
+  - Structural analyses
+	- Targets
+	- Metrics
+- Comparison of network and non-network metrics
+
+
+# Outline
 
 - Resilience metrics for networks of embodied landscapes
   - Landscape context
