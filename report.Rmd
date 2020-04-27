@@ -21,8 +21,6 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 ```
 
 
-
-
 - Resilience metrics for networks of embodied landscapes
   - Landscape context
   - Disturbances
@@ -162,8 +160,6 @@ q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
 io.bdf[q.rev | q.ov, "TI"]
 
 ```
-
-
 
 # Literature Review: Methods and Background
 
