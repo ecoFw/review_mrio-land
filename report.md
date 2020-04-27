@@ -61,7 +61,7 @@ keyword+title: mrio & network/ena
         grepl("NETWORK ANALYS", io.bdf[, "TI"])) & 
         !(grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
         grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]))
-    q.me <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
+    q.ena <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
         grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]) &
         !(q.net)
 
@@ -178,8 +178,8 @@ Literature Review: Methods and Background
 </tr>
 <tr class="odd">
 <td align="left">ENA</td>
-<td align="right">4</td>
-<td align="right">0.14</td>
+<td align="right">35</td>
+<td align="right">1.19</td>
 </tr>
 <tr class="even">
 <td align="left">Resilience</td>
@@ -227,6 +227,15 @@ Literature Review: Methods and Background
     ## [4] "Resilience.csv"         "Climate_Change.csv"     "Metrics.csv"           
     ## [7] "Land_Metrics.csv"       "Review_or_Overview.csv"
     ## [1] "Successfully written to data/wos-mrio_query"
+
+Searched and Reviewed "Land" Query
+----------------------------------
+
+-   Searched within queried papers and found papers with MRIO, network
+    or resilience
+-   Need to add telecoupling and land-system science articles
+-   Recompile using a cross-referencing = LAND & MRIO | NETWORK |
+    RESILIENCE | SUSTAINABILITY
 
 References
 ==========
