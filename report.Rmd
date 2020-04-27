@@ -157,7 +157,6 @@ q.rev <- grepl("REVIEW", io.bdf[, "DT"]) |
 q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
     grepl("OVERVIEW", io.bdf[, "DE"]) | 
     grepl("OVERVIEW", io.bdf[, "TI"]) 
-io.bdf[q.rev | q.ov, c("PY", "AU", "TI")]
 
 ```
 
@@ -167,7 +166,7 @@ io.bdf[q.rev | q.ov, c("PY", "AU", "TI")]
 
 ```{r papers-rev, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.rev | q.ov, c("PY", "AU", "TI")]
+io.bdf[q.rev | q.ov, c("TI")]
 
 ```
 
@@ -175,13 +174,13 @@ io.bdf[q.rev | q.ov, c("PY", "AU", "TI")]
 
 ```{r papers-ena, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.ena | q.ov, c("PY", "AU", "TI")]
+io.bdf[q.ena | q.ov, c("TI")]
 
 ```
 
 ```{r papers-net, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.net | q.ov, c("PY", "AU", "TI")]
+io.bdf[q.net | q.ov, c("TI")]
 
 ```
 
@@ -189,19 +188,19 @@ io.bdf[q.net | q.ov, c("PY", "AU", "TI")]
 
 ```{r papers-met, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.met, c("PY", "AU", "TI")]
+io.bdf[q.met, c("TI")]
 
 ```
 
 ```{r papers-met-land, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.met & q.ml, c("PY", "AU", "TI")]
+io.bdf[q.met & q.ml, c("TI")]
 
 ```
 
 ```{r papers-met-ena, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.met.land, c("PY", "AU", "TI")]
+io.bdf[q.met.land, c("TI")]
 
 ```
 
@@ -209,7 +208,7 @@ io.bdf[q.met.land, c("PY", "AU", "TI")]
 
 ```{r papers-res, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.res, c("PY", "AU", "TI")]
+io.bdf[q.res, c("TI")]
 
 ```
 
