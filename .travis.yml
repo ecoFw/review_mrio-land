@@ -1,0 +1,6 @@
+language: C
+sudo: false
+
+script:
+  - chmod +x ./make.sh
+  - ./make.sh
