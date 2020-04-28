@@ -24,6 +24,10 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 - Why landscape?
   - Major topics in landscape
+	- Land-use change
+	- Climate change
+	- Invasive/disease organisms
+	- Fire and drought
   - Resilience and sustainability
 - What has been done?
 - Why networks, why ENA?
