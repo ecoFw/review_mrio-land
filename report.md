@@ -464,6 +464,8 @@ Literature Review: Methods and Background
     ## [7] "Land_Metrics.csv"       "Review_or_Overview.csv"
     ## [1] "Successfully written to data/wos-mrio_query"
 
+    mk_review(io.bdf, q.all, file = "results/wos_review.md", overwrite = TRUE)
+
 Searched and Reviewed "Land" Query
 ----------------------------------
 

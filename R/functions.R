@@ -111,19 +111,31 @@ export_query <- function(df = "dataframe", ql = "query list",
 #'
 #' 
 
-mk_review <- function(df = "bibliographic data frame", ql = "Named query list", file = "Output file path", overwrite = FALSE){
+mk_review <- function(df = "bibliographic data frame", ql = "Named query list", file = "Output file path", overwrite = FALSE, verbose = FALSE){
 
     if (file.exists(file) & overwrite == FALSE){
         warning(paste(file, "exists. Set overwrite = TRUE to overwrite."))
     }else{
-        
-        hd  <- c("---", paste("title:", "REVIEW OF", names(ql)), "author: ", "date: ", "---")
-        sc  <- paste("\\#", names(ql))
+        hd  <- c("---", 
+                 paste("title:", "REVIEW OF", paste(names(ql), collapse = ", ")),
+                 "author: ", "date: ", 
+                 "---")
+        sc  <- paste("#", names(ql))
         bo <- list()
         for (i in seq_along(ql)){
-            bo[[i]] <- c(sc[[i]], 
-                         paste("- ", ))
+            refs <- apply(df[ql[[i]], c("TI", "SR", "UT")], 1, paste, collapse = " | ")
+            bo[[i]] <- c("", 
+                         "", 
+                         sc[[i]], 
+                         "",
+                         paste("-", refs)
+                             )
         }
-
+        out <- c(hd, unlist(bo))
+        file.create(file, showWarnings = FALSE)
+        file_conn <- file(file)
+        writeLines(out, file_conn)
+        close(file_conn)
     }
+    if (verbose){return(out)}
 }
