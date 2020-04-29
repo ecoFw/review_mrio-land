@@ -22,15 +22,27 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 # Overview
 
+Summary: The goal of this review is to identify the needs for network
+analysis of landscape (forests, agriculture, aquatic, built) embodied
+in trade to assess the resilience of global human-natural systems to
+climate change.
+
 - Why landscape?
   - Major topics in landscape
 	- Land-use change
 	- Climate change
 	- Invasive/disease organisms
 	- Fire and drought
-  - Resilience and sustainability
+   - Resilience and sustainability
 - What has been done?
+- Why MRIO?
+  - Multi-regional
+  - Multi-industry
 - Why networks, why ENA?
+  - System-wide impacts through both direct and indirect pathways
+  - Feedbacks and cycling
+  - Groups and modules
+  - ENA is based on IO Analysis framework
 - What are the priorities?
   - Climate change
   - Land-use change
