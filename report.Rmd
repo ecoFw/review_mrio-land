@@ -43,6 +43,13 @@ climate change.
   - Feedbacks and cycling
   - Groups and modules
   - ENA is based on IO Analysis framework
+  - Compare Approaches (network vs non-network)
+	- ENA
+	- IO analysis
+	- Telecoupling
+	- Footprint analysis
+	- Other? See Ecol. Econ. 2015 114
+	- Virtual systems?
 - What are the priorities?
   - Climate change
   - Land-use change
