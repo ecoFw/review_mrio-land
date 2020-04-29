@@ -6,6 +6,48 @@
 
 
 
+Overview
+========
+
+Summary: The goal of this review is to identify the needs for network
+analysis of landscape (forests, agriculture, aquatic, built) embodied in
+trade to assess the resilience of global human-natural systems to
+climate change.
+
+-   Why landscape?
+-   Major topics in landscape
+    -   Land-use change
+    -   Climate change
+    -   Invasive/disease organisms
+    -   Fire and drought
+-   Resilience and sustainability
+-   What has been done?
+-   Why MRIO?
+-   Multi-regional
+-   Multi-industry
+-   Why networks, why ENA?
+-   System-wide impacts through both direct and indirect pathways
+-   Feedbacks and cycling
+-   Groups and modules
+-   ENA is based on IO Analysis framework
+-   Compare Approaches (network vs non-network)
+    -   ENA
+    -   IO analysis
+    -   Telecoupling
+    -   Footprint analysis
+    -   Other? See Ecol. Econ. 2015 114
+    -   Virtual systems?
+-   What are the priorities?
+-   Climate change
+-   Land-use change
+-   Structural analyses
+    -   Targets
+    -   Metrics
+-   Comparison of network and non-network metrics
+
+Outline
+=======
+
 -   Resilience metrics for networks of embodied landscapes
 -   Landscape context
 -   Disturbances
@@ -317,12 +359,6 @@ Metrics
     ## [65] "A METHOD FOR ECONOMIC INPUT-OUTPUT SOCIAL IMPACT ANALYSIS WITH APPLICATION TO US ADVANCED MANUFACTURING"
 
     io.bdf[q.met & q.ml, c("TI")]
-
-    ## [1] "MODELLING MULTI-REGIONAL ECOLOGICAL EXCHANGES: THE CASE OF UK AND AFRICA"                               
-    ## [2] "TRADING LAND: A REVIEW OF APPROACHES TO ACCOUNTING FOR UPSTREAM LAND REQUIREMENTS OF TRADED PRODUCTS"   
-    ## [3] "INVENTORY DEVELOPMENT AND INPUT-OUTPUT MODEL OF US LAND USE: RELATING LAND IN PRODUCTION TO CONSUMPTION"
-
-    io.bdf[q.met.land, c("TI")]
 
     ## [1] "MODELLING MULTI-REGIONAL ECOLOGICAL EXCHANGES: THE CASE OF UK AND AFRICA"                               
     ## [2] "TRADING LAND: A REVIEW OF APPROACHES TO ACCOUNTING FOR UPSTREAM LAND REQUIREMENTS OF TRADED PRODUCTS"   
