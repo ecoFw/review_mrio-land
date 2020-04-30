@@ -32,9 +32,9 @@ fix_bdf <- function(df, include.books = FALSE){
 check_data <- function(df){
     checks <- data.frame()
     if (any(grepl("BOOK", df[, "DT"]))){
-        checks["count", 1] <- nrow(df) == 3086
+        checks["count", 1] <- nrow(df) == 4213
     }else{
-        checks["count", 1] <- nrow(df) == 3010
+        checks["count", 1] <- nrow(df) == 4084
     }
     checks["years", 1] <- all(!(is.na(df[, "PY"])))
     if (all(checks[, 1])){
