@@ -111,7 +111,7 @@ export_query <- function(df = "dataframe", ql = "query list",
 #'
 #' 
 
-mk_review <- function(df = "bibliographic data frame", ql = "Named query list", file = "Output file path", overwrite = FALSE, verbose = FALSE){
+mk_review <- function(df = "bibliographic data frame", ql = "Named query list", file = "Output file path", overwrite = FALSE, verbose = FALSE, sort.by.year = TRUE){
 
     if (file.exists(file) & overwrite == FALSE){
         warning(paste(file, "exists. Set overwrite = TRUE to overwrite."))
@@ -124,6 +124,9 @@ mk_review <- function(df = "bibliographic data frame", ql = "Named query list", 
         bo <- list()
         for (i in seq_along(ql)){
             refs <- apply(df[ql[[i]], c("TI", "SR", "UT")], 1, paste, collapse = " | ")
+            if (sort.by.year){
+                refs <- refs[order(df[ql[[i]]][, "PY"], decreasing = TRUE), ]
+            }
             bo[[i]] <- c("", 
                          "", 
                          sc[[i]], 
