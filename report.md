@@ -275,17 +275,19 @@ ENA/Network
     ## [29] "NETWORK ANALYSIS APPLIED TO LARGE-SCALE CYBER-ECOSYSTEMS"                                                                                                                                          
     ## [30] "NETWORK SYNERGISM: EMERGENCE OF POSITIVE RELATIONS IN ECOLOGICAL SYSTEMS"                                                                                                                          
     ## [31] "CARBON BUDGET AND NETWORK ANALYSIS OF A HIGH-ENERGY BEACH/SURF-ZONE ECOSYSTEM"                                                                                                                     
-    ## [32] "LINKING AGRICULTURAL GHG EMISSIONS TO GLOBAL TRADE NETWORK"                                                                                                                                        
-    ## [33] "EVOLUTION OF VIRTUAL WATER METABOLIC NETWORK IN DEVELOPING REGIONS: A CASE STUDY OF GUANGDONG PROVINCE"                                                                                            
-    ## [34] "CARBON COMMUNITIES AND HOTSPOTS FOR CARBON EMISSIONS REDUCTION IN CHINA"                                                                                                                           
-    ## [35] "ENERGY FOOTPRINT PATHWAYS OF CHINA"                                                                                                                                                                
-    ## [36] "A STUDY ON EMBODIED CARBON TRANSFER AT THE PROVINCIAL LEVEL OF CHINA FROM A SOCIAL NETWORK PERSPECTIVE"                                                                                            
-    ## [37] "LINKAGE ANALYSIS OF TOURISM-RELATED SECTORS IN CHINA: AN ASSESSMENT BASED ON NETWORK ANALYSIS TECHNIQUE"                                                                                           
-    ## [38] "ENERGY-INDUCED MERCURY EMISSIONS IN GLOBAL SUPPLY CHAIN NETWORKS: STRUCTURAL CHARACTERISTICS AND POLICY IMPLICATIONS"                                                                              
-    ## [39] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                                            
-    ## [40] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                                                
-    ## [41] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"                                                                                                                          
-    ## [42] "NETWORK ANALYSIS OF DIFFERENT TYPES OF FOOD FLOWS: ESTABLISHING THE INTERACTION BETWEEN FOOD FLOWS AND ECONOMIC FLOWS"
+    ## [32] "LAND COMPETITION UNDER TELECOUPLING: DISTANT ACTORS' ENVIRONMENTAL VERSUS ECONOMIC CLAIMS ON LAND IN NORTH-EASTERN MADAGASCAR"                                                                     
+    ## [33] "NETWORK ANALYSIS AS A TOOL FOR QUANTIFYING THE DYNAMICS OF METACOUPLED SYSTEMS: AN EXAMPLE USING GLOBAL SOYBEAN TRADE"                                                                             
+    ## [34] "LINKING AGRICULTURAL GHG EMISSIONS TO GLOBAL TRADE NETWORK"                                                                                                                                        
+    ## [35] "EVOLUTION OF VIRTUAL WATER METABOLIC NETWORK IN DEVELOPING REGIONS: A CASE STUDY OF GUANGDONG PROVINCE"                                                                                            
+    ## [36] "CARBON COMMUNITIES AND HOTSPOTS FOR CARBON EMISSIONS REDUCTION IN CHINA"                                                                                                                           
+    ## [37] "ENERGY FOOTPRINT PATHWAYS OF CHINA"                                                                                                                                                                
+    ## [38] "A STUDY ON EMBODIED CARBON TRANSFER AT THE PROVINCIAL LEVEL OF CHINA FROM A SOCIAL NETWORK PERSPECTIVE"                                                                                            
+    ## [39] "LINKAGE ANALYSIS OF TOURISM-RELATED SECTORS IN CHINA: AN ASSESSMENT BASED ON NETWORK ANALYSIS TECHNIQUE"                                                                                           
+    ## [40] "ENERGY-INDUCED MERCURY EMISSIONS IN GLOBAL SUPPLY CHAIN NETWORKS: STRUCTURAL CHARACTERISTICS AND POLICY IMPLICATIONS"                                                                              
+    ## [41] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                                            
+    ## [42] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                                                
+    ## [43] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"                                                                                                                          
+    ## [44] "NETWORK ANALYSIS OF DIFFERENT TYPES OF FOOD FLOWS: ESTABLISHING THE INTERACTION BETWEEN FOOD FLOWS AND ECONOMIC FLOWS"
 
 Metrics
 -------
@@ -376,10 +378,11 @@ Resilience
     ##  [5] "INTERCONNECTEDNESS AND INTERDEPENDENCIES OF CRITICAL INFRASTRUCTURES IN THE US ECONOMY: IMPLICATIONS FOR RESILIENCE"                                                        
     ##  [6] "ECONOMIC IMPACT OF PRODUCTION BOTTLENECKS CAUSED BY DISASTERS IMPACTING INTERDEPENDENT INDUSTRY SECTORS"                                                                    
     ##  [7] "ENERGY IMPORT RESILIENCE WITH INPUT-OUTPUT LINEAR PROGRAMMING MODELS"                                                                                                       
-    ##  [8] "TOWARD SUSTAINABLE CLIMATE CHANGE ADAPTATION"                                                                                                                               
-    ##  [9] "ENERGY-ECONOMIC RESILIENCE WITH MULTI-REGION INPUT-OUTPUT LINEAR PROGRAMMING MODELS"                                                                                        
-    ## [10] "MULTI-CRITERIA DECISION-MAKING FOR SEISMIC RESILIENCE AND SUSTAINABILITY ASSESSMENT OF DIAGRID BUILDINGS"                                                                   
-    ## [11] "ANALYSING ECONOMIC IMPACT ON INTERDEPENDENT INFRASTRUCTURE AFTER FLOOD: PAKISTAN A CASE IN POINT"
+    ##  [8] "SMALLHOLDER TELECOUPLING AND POTENTIAL SUSTAINABILITY"                                                                                                                      
+    ##  [9] "TOWARD SUSTAINABLE CLIMATE CHANGE ADAPTATION"                                                                                                                               
+    ## [10] "ENERGY-ECONOMIC RESILIENCE WITH MULTI-REGION INPUT-OUTPUT LINEAR PROGRAMMING MODELS"                                                                                        
+    ## [11] "MULTI-CRITERIA DECISION-MAKING FOR SEISMIC RESILIENCE AND SUSTAINABILITY ASSESSMENT OF DIAGRID BUILDINGS"                                                                   
+    ## [12] "ANALYSING ECONOMIC IMPACT ON INTERDEPENDENT INFRASTRUCTURE AFTER FLOOD: PAKISTAN A CASE IN POINT"
 
 Literature Review: Methods and Background
 =========================================
@@ -404,23 +407,23 @@ Literature Review: Methods and Background
 <tbody>
 <tr class="odd">
 <td align="left">Land</td>
-<td align="right">72</td>
-<td align="right">2.45</td>
+<td align="right">139</td>
+<td align="right">4.50</td>
 </tr>
 <tr class="even">
 <td align="left">Network</td>
-<td align="right">35</td>
-<td align="right">1.19</td>
+<td align="right">37</td>
+<td align="right">1.20</td>
 </tr>
 <tr class="odd">
 <td align="left">ENA</td>
 <td align="right">35</td>
-<td align="right">1.19</td>
+<td align="right">1.13</td>
 </tr>
 <tr class="even">
 <td align="left">Resilience</td>
-<td align="right">11</td>
-<td align="right">0.37</td>
+<td align="right">12</td>
+<td align="right">0.39</td>
 </tr>
 <tr class="odd">
 <td align="left">Disturbance</td>
@@ -429,18 +432,18 @@ Literature Review: Methods and Background
 </tr>
 <tr class="even">
 <td align="left">Climate Change</td>
-<td align="right">84</td>
-<td align="right">2.85</td>
+<td align="right">93</td>
+<td align="right">3.01</td>
 </tr>
 <tr class="odd">
 <td align="left">Coupled Human-Natural</td>
-<td align="right">0</td>
-<td align="right">0.00</td>
+<td align="right">7</td>
+<td align="right">0.23</td>
 </tr>
 <tr class="even">
 <td align="left">Metrics</td>
 <td align="right">65</td>
-<td align="right">2.21</td>
+<td align="right">2.11</td>
 </tr>
 <tr class="odd">
 <td align="left">Land Metrics</td>
@@ -450,7 +453,7 @@ Literature Review: Methods and Background
 <tr class="even">
 <td align="left">Review or Overview</td>
 <td align="right">19</td>
-<td align="right">0.65</td>
+<td align="right">0.62</td>
 </tr>
 </tbody>
 </table>
@@ -458,10 +461,11 @@ Literature Review: Methods and Background
     export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
 
     ## [1] "Disturbance had length zero and was removed."
-    ## [1] "Coupled_Human-Natural had length zero and was removed."
-    ## [1] "Land.csv"               "Network.csv"            "ENA.csv"               
-    ## [4] "Resilience.csv"         "Climate_Change.csv"     "Metrics.csv"           
-    ## [7] "Land_Metrics.csv"       "Review_or_Overview.csv"
+    ## [1] "Land.csv"                  "Network.csv"              
+    ## [3] "ENA.csv"                   "Resilience.csv"           
+    ## [5] "Climate_Change.csv"        "Coupled_Human-Natural.csv"
+    ## [7] "Metrics.csv"               "Land_Metrics.csv"         
+    ## [9] "Review_or_Overview.csv"   
     ## [1] "Successfully written to data/wos-mrio_query"
 
     mk_review(io.bdf, q.all, file = "results/wos_review.md", overwrite = TRUE)
