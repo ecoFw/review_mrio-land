@@ -11,10 +11,13 @@ fix_bdf <- function(df, include.books = FALSE){
     ead <- strsplit(df[, "early.access.date"], split = " ")
     df[is.na(df[, "PY"]), "PY"] <- do.call(rbind, ead)[is.na(df[, "PY"]), 2]
     ## limit to articles
+    df <- df[!(grepl("PROCEEDINGS", df[, "DT"])), ]
     if (include.books){
-        df <- df[grepl("ARTICLE", df[, "DT"]) | grepl("BOOK", df[, "DT"]), ]
+        df <- df[grepl("ARTICLE", df[, "DT"]) | 
+                 grepl("BOOK", df[, "DT"]), ]
     }else{
-        df <- df[grepl("ARTICLE", df[, "DT"]), ]
+        df <- df[grepl("ARTICLE", df[, "DT"]) & 
+                 !(grepl("BOOK", df[, "DT"])), ]
     }
     ## remove duplicates by title and UID
     df <- df[!(duplicated(df[, "TI"]) | duplicated(df[, "UT"])), ]
@@ -32,9 +35,9 @@ fix_bdf <- function(df, include.books = FALSE){
 check_data <- function(df){
     checks <- data.frame()
     if (any(grepl("BOOK", df[, "DT"]))){
-        checks["count", 1] <- nrow(df) == 3512
+        checks["count", 1] <- nrow(df) == 3379
     }else{
-        checks["count", 1] <- nrow(df) == 3383
+        checks["count", 1] <- nrow(df) == 3202
     }
     checks["years", 1] <- all(!(is.na(df[, "PY"])))
     if (all(checks[, 1])){

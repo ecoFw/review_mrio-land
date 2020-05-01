@@ -102,11 +102,23 @@ loadd(io.bdf)
 
 ```
 
+
+## keyword+title: io/mrio
+
+```{r mrio-io, echo=TRUE, message=FALSE, warning=FALSE}
+
+q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) | 
+    grepl("INPUT-OUTPUT", io.bdf[, "TI"]) | 
+    grepl("INPUT OUTPUT", io.bdf[, "DE"]) | 
+    grepl("INPUT OUTPUT", io.bdf[, "TI"]) 
+
+```
+
 ## keyword+title: mrio & landscape
 
 ```{r mrio-land, echo=TRUE, message=FALSE, warning=FALSE}
 
-q.ml <- grepl("^LAND", io.bdf[, "DE"]) | 
+q.land <- grepl("^LAND", io.bdf[, "DE"]) | 
     grepl("^LAND", io.bdf[, "TI"]) | 
     grepl(" LAND", io.bdf[, "DE"]) | 
     grepl(" LAND", io.bdf[, "TI"]) 
@@ -183,7 +195,7 @@ q.met <- grepl(" METRIC", io.bdf[, "TI"]) |
     grepl("^METRIC", io.bdf[, "AB"]) & 
     q.net &
     q.res
-q.met.land <- q.met & q.ml
+q.met.land <- q.met & q.land
 
 ```
 
@@ -202,7 +214,15 @@ q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
 
 # Papers
 
-## Reviews/Overviews
+## QUERY: IO/MRIO
+
+```{r papers-iomrio, echo=TRUE, message=FALSE, warning=FALSE}
+
+head(io.bdf[q.mrio, c("TI")])
+
+```
+
+## QUERY: Reviews/Overviews
 
 ```{r papers-rev, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -210,7 +230,7 @@ io.bdf[q.rev | q.ov, c("TI")]
 
 ```
 
-## ENA/Network
+## QUERY: ENA/Network
 
 ```{r papers-ena, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -224,7 +244,7 @@ io.bdf[q.net | q.ov, c("TI")]
 
 ```
 
-## Metrics
+## QUERY: Metrics
 
 ```{r papers-met, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -234,12 +254,12 @@ io.bdf[q.met, c("TI")]
 
 ```{r papers-met-land, echo=TRUE, message=FALSE, warning=FALSE}
 
-io.bdf[q.met & q.ml, c("TI")]
+io.bdf[q.met & q.land, c("TI")]
 
 ```
 
 
-## Resilience
+## QUERY: Resilience
 
 ```{r papers-res, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -285,30 +305,38 @@ treemap(data, index=c("group"), vSize="value", type="index",
 
 ```
 
+```{r query-list, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
+q.all <- list("IO_MRIO" = q.mrio, Land = q.land, 
+	          "Climate Change" = q.mc, Resilience = q.res,
+	          Metric = q.met, Network = q.net, ENA = q.ena, CHNS = q.chns, 
+	          "Land Metrics" = q.met.land, Review = (q.rev | q.ov))
 
+```
 
 ```{r topic-table, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
 
-q.all <- list(q.ml, q.net, q.ena, q.res, q.md, q.mc, q.chns,
-              q.met, q.met.land, (q.rev | q.ov))
-q.labs <- c("Land", "Network", "ENA", "Resilience", "Disturbance", "Climate Change", 
-            "Coupled Human-Natural", "Metrics", "Land Metrics", "Review or Overview")
-names(q.all) <- q.labs
-count <- unlist(lapply(q.all, sum))
+count <- c(unlist(lapply(q.all, sum)), nrow(io.bdf))
 pct <- count / nrow(io.bdf) * 100
 pct <- round(pct, 2)
-q.df <- data.frame(topic = q.labs, count = count, percent = pct)
+q.df <- data.frame(topic = c(names(q.all), "Total"), count = count, percent = pct)
 knitr::kable(q.df, caption = "", booktabs = TRUE, row.names = FALSE)
 
 ```
 
+
 ```{r export-query, echo = TRUE, message = FALSE, warning = FALSE}
 
 export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
-mk_review(io.bdf, q.all, file = "results/wos_review.md", overwrite = TRUE)
+mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
 
 ```
+
+<!-- q.all <- list("IO_MRIO" = q.mrio, Land = q.land, Resilience = q.res, -->
+<!-- 	          "Climate Change" = q.mc,  -->
+<!-- 	          Metric = q.met, Network = q.net, ENA = q.ena, CHNS = q.chns,  -->
+<!-- 	          "Land Metrics" = q.met.land, Review = (q.rev | q.ov)) -->
+
 
 ## Searched and Reviewed "Land" Query
 

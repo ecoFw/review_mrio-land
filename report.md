@@ -88,10 +88,18 @@ Analyses
 
     loadd(io.bdf)
 
+keyword+title: io/mrio
+----------------------
+
+    q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) | 
+        grepl("INPUT-OUTPUT", io.bdf[, "TI"]) | 
+        grepl("INPUT OUTPUT", io.bdf[, "DE"]) | 
+        grepl("INPUT OUTPUT", io.bdf[, "TI"]) 
+
 keyword+title: mrio & landscape
 -------------------------------
 
-    q.ml <- grepl("^LAND", io.bdf[, "DE"]) | 
+    q.land <- grepl("^LAND", io.bdf[, "DE"]) | 
         grepl("^LAND", io.bdf[, "TI"]) | 
         grepl(" LAND", io.bdf[, "DE"]) | 
         grepl(" LAND", io.bdf[, "TI"]) 
@@ -154,7 +162,7 @@ keyword+title: ena & resilience+stability & metrics
         grepl("^METRIC", io.bdf[, "AB"]) & 
         q.net &
         q.res
-    q.met.land <- q.met & q.ml
+    q.met.land <- q.met & q.land
 
 type: review
 ------------
@@ -169,8 +177,20 @@ type: review
 Papers
 ======
 
-Reviews/Overviews
------------------
+QUERY: IO/MRIO
+--------------
+
+    head(io.bdf[q.mrio, c("TI")])
+
+    ## [1] "AN INTEGRATED MODELING FRAMEWORK FOR ENERGY ECONOMY AND EMISSIONS MODELING: A CASE FOR INDIA"                                                       
+    ## [2] "ESTIMATING THE IMPACTS OF FINANCING SUPPORT POLICIES TOWARDS PHOTOVOLTAIC MARKET IN INDONESIA: A SOCIAL-ENERGY-ECONOMY-ENVIRONMENT MODEL SIMULATION"
+    ## [3] "THE SOCIOECONOMIC FUTURE OF DELTAS IN A CHANGING ENVIRONMENT"                                                                                       
+    ## [4] "INTER-REGIONAL SPILLOVER OF CHINA'S SULFUR DIOXIDE (SO2) POLLUTION ACROSS THE SUPPLY CHAINS"                                                        
+    ## [5] "THE ROLE OF VEHICLE LIFETIME EXTENSIONS OF COUNTRIES ON GLOBAL CO2 EMISSIONS"                                                                       
+    ## [6] "DRIVERS OF VIRTUAL WATER FLOWS ON REGIONAL WATER SCARCITY IN CHINA"
+
+QUERY: Reviews/Overviews
+------------------------
 
     io.bdf[q.rev | q.ov, c("TI")]
 
@@ -183,19 +203,18 @@ Reviews/Overviews
     ##  [7] "TRADING LAND: A REVIEW OF APPROACHES TO ACCOUNTING FOR UPSTREAM LAND REQUIREMENTS OF TRADED PRODUCTS"                                                                  
     ##  [8] "HOUSEHOLD CARBON EMISSION RESEARCH: AN ANALYTICAL REVIEW OF MEASUREMENT, INFLUENCING FACTORS AND MITIGATION PROSPECTS"                                                 
     ##  [9] "MEASURING TELECOUPLINGS IN THE GLOBAL LAND SYSTEM: A REVIEW AND COMPARATIVE EVALUATION OF LAND FOOTPRINT ACCOUNTING METHODS"                                           
-    ## [10] "A REVIEW OF THE MODELLING OF WATER VALUES IN DIFFERENT USE SECTORS IN SOUTH AFRICA"                                                                                    
-    ## [11] "INPUT-OUTPUT ANALYSIS AND CARBON FOOTPRINTING: AN OVERVIEW OF APPLICATIONS"                                                                                            
-    ## [12] "ENVIRONMENT IMPACTS OF PRODUCTS - A DETAILED REVIEW OF STUDIES"                                                                                                        
-    ## [13] "A REVIEW OF DIFFERING APPROACHES USED TO ESTIMATE THE COST OF CORROSION (AND THEIR RELEVANCE IN THE DEVELOPMENT OF MODERN CORROSION PREVENTION AND CONTROL STRATEGIES)"
-    ## [14] "ENERGY AND CO2 LIFE-CYCLE ANALYSES OF WIND TURBINES - REVIEW AND APPLICATIONS"                                                                                         
-    ## [15] "REVIEW OF MODELING TECHNIQUES AND TOOLS FOR DECISION-MAKING IN MANUFACTURING MANAGEMENT"                                                                               
-    ## [16] "EMPLOYMENT AND FARMERS' WORK IN EUROPEAN RUMINANT LIVESTOCK FARMS: A REVIEW"                                                                                           
-    ## [17] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                
-    ## [18] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                    
-    ## [19] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"
+    ## [10] "INPUT-OUTPUT ANALYSIS AND CARBON FOOTPRINTING: AN OVERVIEW OF APPLICATIONS"                                                                                            
+    ## [11] "ENVIRONMENT IMPACTS OF PRODUCTS - A DETAILED REVIEW OF STUDIES"                                                                                                        
+    ## [12] "A REVIEW OF DIFFERING APPROACHES USED TO ESTIMATE THE COST OF CORROSION (AND THEIR RELEVANCE IN THE DEVELOPMENT OF MODERN CORROSION PREVENTION AND CONTROL STRATEGIES)"
+    ## [13] "ENERGY AND CO2 LIFE-CYCLE ANALYSES OF WIND TURBINES - REVIEW AND APPLICATIONS"                                                                                         
+    ## [14] "REVIEW OF MODELING TECHNIQUES AND TOOLS FOR DECISION-MAKING IN MANUFACTURING MANAGEMENT"                                                                               
+    ## [15] "EMPLOYMENT AND FARMERS' WORK IN EUROPEAN RUMINANT LIVESTOCK FARMS: A REVIEW"                                                                                           
+    ## [16] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                
+    ## [17] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                    
+    ## [18] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"
 
-ENA/Network
------------
+QUERY: ENA/Network
+------------------
 
     io.bdf[q.ena | q.ov, c("TI")]
 
@@ -206,91 +225,87 @@ ENA/Network
     ##  [5] "ECOLOGICAL NETWORK ANALYSIS ON INTRA-CITY METABOLISM OF FUNCTIONAL URBAN AREAS IN ENGLAND AND WALES"                                                                      
     ##  [6] "INTERREGIONAL CARBON FLOWS OF CHINA"                                                                                                                                      
     ##  [7] "MULTIREGIONAL INPUT-OUTPUT AND ECOLOGICAL NETWORK ANALYSES FOR REGIONAL ENERGY-WATER NEXUS WITHIN CHINA"                                                                  
-    ##  [8] "ECOLOGICAL NETWORK ANALYSIS FOR URBAN METABOLISM AND CARBON EMISSIONS BASED ON INPUT-OUTPUT TABLES: A CASE STUDY OF GUANGDONG PROVINCE"                                   
-    ##  [9] "AN OVERVIEW OF ARABLE LAND USE FOR THE WORLD ECONOMY: FROM SOURCE TO SINK VIA THE GLOBAL SUPPLY CHAIN"                                                                    
-    ## [10] "PROVINCIAL CARBON EMISSIONS REDUCTION ALLOCATION PLAN IN CHINA BASED ON CONSUMPTION PERSPECTIVE"                                                                          
-    ## [11] "INTERREGIONAL TRADE AMONG REGIONS OF URBAN ENERGY METABOLISM: A CASE STUDY BETWEEN BEIJING-TIANJIN-HEBEI AND OTHERS IN CHINA"                                             
-    ## [12] "MULTI-SCALE ANALYSIS OF THE ENERGY METABOLIC PROCESSES IN THE BEIJING-TIANJIN-HEBEI (JING-JIN-JI) URBAN AGGLOMERATION"                                                    
-    ## [13] "ASSESSING THE URBAN CARBON FOOTPRINT: AN OVERVIEW"                                                                                                                        
-    ## [14] "ECOLOGICAL UTILITY THEORY: SOLVING A SERIES CONVERGENCE ISSUE"                                                                                                            
-    ## [15] "ENERGY-WATER NEXUS OF INTERNATIONAL ENERGY TRADE OF CHINA"                                                                                                                
-    ## [16] "ECOLOGICAL NETWORK ANALYSIS OF ENERGY METABOLISM IN THE BEIJING-TIANJIN-HEBEI (JING-JIN-JI) URBAN AGGLOMERATION"                                                          
-    ## [17] "HIGHLY VARIABLE MALE COURTSHIP BEHAVIORAL SEQUENCES IN A CRAMBID MOTH"                                                                                                    
-    ## [18] "ECOLOGICAL NETWORK ANALYSIS OF EMBODIED PARTICULATE MATTER 2.5-A CASE STUDY OF BEIJING"                                                                                   
-    ## [19] "SIX GENERAL ECOSYSTEM PROPERTIES ARE MORE INTENSE IN BIOGEOCHEMICAL CYCLING NETWORKS THAN FOOD WEBS"                                                                      
-    ## [20] "ENERGY-WATER NEXUS OF URBAN AGGLOMERATION BASED ON MULTIREGIONAL INPUT-OUTPUT TABLES AND ECOLOGICAL NETWORK ANALYSIS: A CASE STUDY OF THE BEIJING-TIANJIN-HEBEI REGION"   
-    ## [21] "ECOLOGICAL NETWORK ANALYSIS OF EMBODIED ENERGY EXCHANGES AMONG THE SEVEN REGIONS OF CHINA"                                                                                
-    ## [22] "ECOLOGICAL NETWORK ANALYSIS OF THE VIRTUAL WATER NETWORK WITHIN CHINA'S ELECTRIC POWER SYSTEM DURING 2007-2012"                                                           
-    ## [23] "URBAN ENERGY FLOW PROCESSES IN THE BEIJING-TIANJIN-HEBEI (JING-JIN-JI) URBAN AGGLOMERATION: COMBINING MULTI-REGIONAL INPUT-OUTPUT TABLES WITH ECOLOGICAL NETWORK ANALYSIS"
-    ## [24] "MULTI-REGIONAL INPUT-OUTPUT MODEL AND ECOLOGICAL NETWORK ANALYSIS FOR REGIONAL EMBODIED ENERGY ACCOUNTING IN CHINA"                                                       
-    ## [25] "URBAN ENERGY CONSUMPTION: DIFFERENT INSIGHTS FROM ENERGY FLOW ANALYSIS, INPUT-OUTPUT ANALYSIS AND ECOLOGICAL NETWORK ANALYSIS"                                            
-    ## [26] "EQUIVALENCE OF THE REALIZED INPUT AND OUTPUT ORIENTED INDIRECT EFFECTS METRICS IN ECOLOGICAL NETWORK ANALYSIS"                                                            
-    ## [27] "THROUGHFLOW ANALYSIS: A STOCHASTIC APPROACH"                                                                                                                              
-    ## [28] "INPUT-OUTPUT ANALYSIS AND CARBON FOOTPRINTING: AN OVERVIEW OF APPLICATIONS"                                                                                               
-    ## [29] "A MATLAB (R) FUNCTION FOR NETWORK ENVIRON ANALYSIS"                                                                                                                       
-    ## [30] "UNFOLDING INTERREGIONAL ENERGY FLOW STRUCTURE OF CHINA'S CONSTRUCTION SECTOR BASED ON PROVINCE-LEVEL DATA"                                                                
-    ## [31] "CHARACTERISTICS OF TIANJIN'S MATERIAL METABOLISM FROM THE PERSPECTIVE OF ECOLOGICAL NETWORK ANALYSIS"                                                                     
-    ## [32] "AN ECOLOGICAL-THERMODYNAMIC APPROACH TO URBAN METABOLISM: MEASURING RESOURCE UTILIZATION WITH OPEN SYSTEM NETWORK EFFECTIVENESS ANALYSIS"                                 
-    ## [33] "EVALUATING CHROMIUM COUPLED WITH CARBON METABOLISM AND ENVIRONMENTAL PERFORMANCE IN THE CHROMATE INDUSTRIAL SYMBIOSIS NETWORK IN CHINA"                                   
-    ## [34] "ENERGY FOOTPRINT CONTROLLED BY URBAN DEMANDS: HOW MUCH DOES SUPPLY CHAIN COMPLEXITY CONTRIBUTE?"                                                                          
-    ## [35] "ECOLOGICAL NETWORK ANALYSIS OF AN ENERGY METABOLISM SYSTEM BASED ON INPUT-OUTPUT TABLES: MODEL DEVELOPMENT AND CASE STUDY FOR GUANGDONG"                                  
-    ## [36] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                   
-    ## [37] "CHARACTERIZING THE EMBODIED CARBON EMISSIONS FLOWS AND ECOLOGICAL RELATIONSHIPS AMONG FOUR CHINESE MEGACITIES AND OTHER PROVINCES"                                        
-    ## [38] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                       
-    ## [39] "METABOLISM OF URBAN WASTEWATER: ECOLOGICAL NETWORK ANALYSIS FOR GUANGDONG PROVINCE, CHINA"                                                                                
-    ## [40] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"                                                                                                 
-    ## [41] "INFORMATION-BASED ECOLOGICAL NETWORK ANALYSIS FOR CARBON EMISSIONS"                                                                                                       
-    ## [42] "WATER-LAND NEXUS IN FOOD TRADE BASED ON ECOLOGICAL NETWORK ANALYSIS"
+    ##  [8] "AN OVERVIEW OF ARABLE LAND USE FOR THE WORLD ECONOMY: FROM SOURCE TO SINK VIA THE GLOBAL SUPPLY CHAIN"                                                                    
+    ##  [9] "PROVINCIAL CARBON EMISSIONS REDUCTION ALLOCATION PLAN IN CHINA BASED ON CONSUMPTION PERSPECTIVE"                                                                          
+    ## [10] "INTERREGIONAL TRADE AMONG REGIONS OF URBAN ENERGY METABOLISM: A CASE STUDY BETWEEN BEIJING-TIANJIN-HEBEI AND OTHERS IN CHINA"                                             
+    ## [11] "MULTI-SCALE ANALYSIS OF THE ENERGY METABOLIC PROCESSES IN THE BEIJING-TIANJIN-HEBEI (JING-JIN-JI) URBAN AGGLOMERATION"                                                    
+    ## [12] "ASSESSING THE URBAN CARBON FOOTPRINT: AN OVERVIEW"                                                                                                                        
+    ## [13] "ECOLOGICAL UTILITY THEORY: SOLVING A SERIES CONVERGENCE ISSUE"                                                                                                            
+    ## [14] "ENERGY-WATER NEXUS OF INTERNATIONAL ENERGY TRADE OF CHINA"                                                                                                                
+    ## [15] "ECOLOGICAL NETWORK ANALYSIS OF ENERGY METABOLISM IN THE BEIJING-TIANJIN-HEBEI (JING-JIN-JI) URBAN AGGLOMERATION"                                                          
+    ## [16] "HIGHLY VARIABLE MALE COURTSHIP BEHAVIORAL SEQUENCES IN A CRAMBID MOTH"                                                                                                    
+    ## [17] "ECOLOGICAL NETWORK ANALYSIS OF EMBODIED PARTICULATE MATTER 2.5-A CASE STUDY OF BEIJING"                                                                                   
+    ## [18] "SIX GENERAL ECOSYSTEM PROPERTIES ARE MORE INTENSE IN BIOGEOCHEMICAL CYCLING NETWORKS THAN FOOD WEBS"                                                                      
+    ## [19] "ENERGY-WATER NEXUS OF URBAN AGGLOMERATION BASED ON MULTIREGIONAL INPUT-OUTPUT TABLES AND ECOLOGICAL NETWORK ANALYSIS: A CASE STUDY OF THE BEIJING-TIANJIN-HEBEI REGION"   
+    ## [20] "ECOLOGICAL NETWORK ANALYSIS OF EMBODIED ENERGY EXCHANGES AMONG THE SEVEN REGIONS OF CHINA"                                                                                
+    ## [21] "ECOLOGICAL NETWORK ANALYSIS OF THE VIRTUAL WATER NETWORK WITHIN CHINA'S ELECTRIC POWER SYSTEM DURING 2007-2012"                                                           
+    ## [22] "URBAN ENERGY FLOW PROCESSES IN THE BEIJING-TIANJIN-HEBEI (JING-JIN-JI) URBAN AGGLOMERATION: COMBINING MULTI-REGIONAL INPUT-OUTPUT TABLES WITH ECOLOGICAL NETWORK ANALYSIS"
+    ## [23] "MULTI-REGIONAL INPUT-OUTPUT MODEL AND ECOLOGICAL NETWORK ANALYSIS FOR REGIONAL EMBODIED ENERGY ACCOUNTING IN CHINA"                                                       
+    ## [24] "URBAN ENERGY CONSUMPTION: DIFFERENT INSIGHTS FROM ENERGY FLOW ANALYSIS, INPUT-OUTPUT ANALYSIS AND ECOLOGICAL NETWORK ANALYSIS"                                            
+    ## [25] "EQUIVALENCE OF THE REALIZED INPUT AND OUTPUT ORIENTED INDIRECT EFFECTS METRICS IN ECOLOGICAL NETWORK ANALYSIS"                                                            
+    ## [26] "INPUT-OUTPUT ANALYSIS AND CARBON FOOTPRINTING: AN OVERVIEW OF APPLICATIONS"                                                                                               
+    ## [27] "A MATLAB (R) FUNCTION FOR NETWORK ENVIRON ANALYSIS"                                                                                                                       
+    ## [28] "UNFOLDING INTERREGIONAL ENERGY FLOW STRUCTURE OF CHINA'S CONSTRUCTION SECTOR BASED ON PROVINCE-LEVEL DATA"                                                                
+    ## [29] "CHARACTERISTICS OF TIANJIN'S MATERIAL METABOLISM FROM THE PERSPECTIVE OF ECOLOGICAL NETWORK ANALYSIS"                                                                     
+    ## [30] "AN ECOLOGICAL-THERMODYNAMIC APPROACH TO URBAN METABOLISM: MEASURING RESOURCE UTILIZATION WITH OPEN SYSTEM NETWORK EFFECTIVENESS ANALYSIS"                                 
+    ## [31] "EVALUATING CHROMIUM COUPLED WITH CARBON METABOLISM AND ENVIRONMENTAL PERFORMANCE IN THE CHROMATE INDUSTRIAL SYMBIOSIS NETWORK IN CHINA"                                   
+    ## [32] "ECOLOGICAL NETWORK ANALYSIS OF AN ENERGY METABOLISM SYSTEM BASED ON INPUT-OUTPUT TABLES: MODEL DEVELOPMENT AND CASE STUDY FOR GUANGDONG"                                  
+    ## [33] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                   
+    ## [34] "CHARACTERIZING THE EMBODIED CARBON EMISSIONS FLOWS AND ECOLOGICAL RELATIONSHIPS AMONG FOUR CHINESE MEGACITIES AND OTHER PROVINCES"                                        
+    ## [35] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                       
+    ## [36] "METABOLISM OF URBAN WASTEWATER: ECOLOGICAL NETWORK ANALYSIS FOR GUANGDONG PROVINCE, CHINA"                                                                                
+    ## [37] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"                                                                                                 
+    ## [38] "INFORMATION-BASED ECOLOGICAL NETWORK ANALYSIS FOR CARBON EMISSIONS"                                                                                                       
+    ## [39] "WATER-LAND NEXUS IN FOOD TRADE BASED ON ECOLOGICAL NETWORK ANALYSIS"
 
     io.bdf[q.net | q.ov, c("TI")]
 
-    ##  [1] "LAND COMPETITION UNDER TELECOUPLING: DISTANT ACTORS' ENVIRONMENTAL VERSUS ECONOMIC CLAIMS ON LAND IN NORTH-EASTERN MADAGASCAR"                                                                     
-    ##  [2] "NATURAL GAS OVERVIEW FOR WORLD ECONOMY: FROM PRIMARY SUPPLY TO FINAL DEMAND VIA GLOBAL SUPPLY CHAINS"                                                                                              
-    ##  [3] "DYNAMIC INPUT-OUTPUT ANALYSIS FOR ENERGY METABOLISM SYSTEM IN THE PROVINCE OF GUANGDONG, CHINA"                                                                                                    
-    ##  [4] "EVOLUTION OF THE SCIENTIFIC LITERATURE ON INPUT-OUTPUT ANALYSIS: A BIBLIOMETRIC ANALYSIS OF 1990-2017"                                                                                             
-    ##  [5] "VISUALIZING THE CHANGE OF EMBODIED CO2 EMISSIONS ALONG GLOBAL PRODUCTION CHAINS"                                                                                                                   
-    ##  [6] "A NETWORK ANALYSIS OF INDIRECT CARBON EMISSION FLOWS AMONG DIFFERENT INDUSTRIES IN CHINA"                                                                                                          
-    ##  [7] "AN OVERVIEW OF ARABLE LAND USE FOR THE WORLD ECONOMY: FROM SOURCE TO SINK VIA THE GLOBAL SUPPLY CHAIN"                                                                                             
-    ##  [8] "SYSTEMIC RISK IN THE GLOBAL WATER INPUT-OUTPUT NETWORK"                                                                                                                                            
-    ##  [9] "INDUSTRIAL CHARACTERISTICS AND CONSUMPTION EFFICIENCY FROM A NEXUS PERSPECTIVE - BASED ON ANHUI'S EMPIRICAL STATISTICS"                                                                            
-    ## [10] "AN INQUIRY INTO WATER TRANSFER NETWORK OF THE YANGTZE RIVER ECONOMIC BELT IN CHINA"                                                                                                                
-    ## [11] "EMERGY NETWORK ANALYSIS OF CHINESE SECTORAL ECOLOGICAL SUSTAINABILITY"                                                                                                                             
-    ## [12] "GLOBAL ENERGY FLOWS EMBODIED IN INTERNATIONAL TRADE: A COMBINATION OF ENVIRONMENTALLY EXTENDED INPUT-OUTPUT ANALYSIS AND COMPLEX NETWORK ANALYSIS"                                                 
-    ## [13] "FLOWBCA: A FLOW-BASED CLUSTER ALGORITHM IN STATA"                                                                                                                                                  
-    ## [14] "EXAMINING INDUSTRIAL STRUCTURE CHANGES AND CORRESPONDING CARBON EMISSION REDUCTION EFFECT BY COMBINING INPUT-OUTPUT ANALYSIS AND SOCIAL NETWORK ANALYSIS: A COMPARISON STUDY OF CHINA AND JAPAN"   
-    ## [15] "ASSESSING THE URBAN CARBON FOOTPRINT: AN OVERVIEW"                                                                                                                                                 
-    ## [16] "IDENTIFY SECTORS' ROLE ON THE EMBEDDED CO2 TRANSFER NETWORKS THROUGH CHINA'S REGIONAL TRADE"                                                                                                       
-    ## [17] "NETWORK ANALYSIS OF INTER-SECTORAL RELATIONSHIPS AND KEY SECTORS IN THE GREEK ECONOMY"                                                                                                             
-    ## [18] "AN URBAN METABOLISM AND CARBON FOOTPRINT ANALYSIS OF THE JING-JIN-JI REGIONAL AGGLOMERATION"                                                                                                       
-    ## [19] "AUSTRALIA'S REGIONAL INNOVATION SYSTEMS: INTER-INDUSTRY INTERACTION IN INNOVATIVE ACTIVITIES IN THREE AUSTRALIAN TERRITORIES"                                                                      
-    ## [20] "URBAN ENERGY-WATER NEXUS: A NETWORK PERSPECTIVE"                                                                                                                                                   
-    ## [21] "UNEQUAL CARBON EXCHANGES THE ENVIRONMENTAL AND ECONOMIC IMPACTS OF ICONIC US CONSUMPTION ITEMS"                                                                                                    
-    ## [22] "WEALTH AND POLLUTION INEQUALITIES OF GLOBAL TRADE: A NETWORK AND INPUT-OUTPUT APPROACH"                                                                                                            
-    ## [23] "ANALYSIS OF URBAN ENERGY CONSUMPTION IN CARBON METABOLIC PROCESSES AND ITS STRUCTURAL ATTRIBUTES: A CASE STUDY FOR BEIJING"                                                                        
-    ## [24] "ECOSYSTEM NETWORK ANALYSIS INDICATORS ARE GENERALLY ROBUST TO PARAMETER UNCERTAINTY IN A PHOSPHORUS MODEL OF LAKE SIDNEY LANIER, USA"                                                              
-    ## [25] "APPLYING SOCIAL NETWORK ANALYSIS TO INPUT-OUTPUT BASED INNOVATION MATRICES: AN ILLUSTRATIVE APPLICATION TO SIX OECD TECHNOLOGICAL SYSTEMS FOR THE MIDDLE 1990S"                                    
-    ## [26] "INPUT-OUTPUT ANALYSIS AND CARBON FOOTPRINTING: AN OVERVIEW OF APPLICATIONS"                                                                                                                        
-    ## [27] "LEAST-INFERENCE METHODS FOR CONSTRUCTING NETWORKS OF TROPHIC FLOWS"                                                                                                                                
-    ## [28] "INDIRECT EFFECTS AND DISTRIBUTED CONTROL IN ECOSYSTEMS: TEMPORAL VARIATION OF INDIRECT EFFECTS IN A SEVEN-COMPARTMENT MODEL OF NITROGEN FLOW IN THE NEUSE RIVER ESTUARY, USA- TIME SERIES ANALYSIS"
-    ## [29] "THEORY OF MATERIALS AND ENERGY FLOW ANALYSIS IN ECOLOGY AND ECONOMICS"                                                                                                                             
-    ## [30] "NETWORK ANALYSIS APPLIED TO LARGE-SCALE CYBER-ECOSYSTEMS"                                                                                                                                          
-    ## [31] "NETWORK SYNERGISM: EMERGENCE OF POSITIVE RELATIONS IN ECOLOGICAL SYSTEMS"                                                                                                                          
-    ## [32] "CARBON BUDGET AND NETWORK ANALYSIS OF A HIGH-ENERGY BEACH/SURF-ZONE ECOSYSTEM"                                                                                                                     
-    ## [33] "NETWORK ANALYSIS AS A TOOL FOR QUANTIFYING THE DYNAMICS OF METACOUPLED SYSTEMS: AN EXAMPLE USING GLOBAL SOYBEAN TRADE"                                                                             
-    ## [34] "LINKING AGRICULTURAL GHG EMISSIONS TO GLOBAL TRADE NETWORK"                                                                                                                                        
-    ## [35] "EVOLUTION OF VIRTUAL WATER METABOLIC NETWORK IN DEVELOPING REGIONS: A CASE STUDY OF GUANGDONG PROVINCE"                                                                                            
-    ## [36] "CARBON COMMUNITIES AND HOTSPOTS FOR CARBON EMISSIONS REDUCTION IN CHINA"                                                                                                                           
-    ## [37] "ENERGY FOOTPRINT PATHWAYS OF CHINA"                                                                                                                                                                
-    ## [38] "A STUDY ON EMBODIED CARBON TRANSFER AT THE PROVINCIAL LEVEL OF CHINA FROM A SOCIAL NETWORK PERSPECTIVE"                                                                                            
-    ## [39] "LINKAGE ANALYSIS OF TOURISM-RELATED SECTORS IN CHINA: AN ASSESSMENT BASED ON NETWORK ANALYSIS TECHNIQUE"                                                                                           
-    ## [40] "ENERGY-INDUCED MERCURY EMISSIONS IN GLOBAL SUPPLY CHAIN NETWORKS: STRUCTURAL CHARACTERISTICS AND POLICY IMPLICATIONS"                                                                              
-    ## [41] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                                            
-    ## [42] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                                                
-    ## [43] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"                                                                                                                          
-    ## [44] "NETWORK ANALYSIS OF DIFFERENT TYPES OF FOOD FLOWS: ESTABLISHING THE INTERACTION BETWEEN FOOD FLOWS AND ECONOMIC FLOWS"
+    ##  [1] "LAND COMPETITION UNDER TELECOUPLING: DISTANT ACTORS' ENVIRONMENTAL VERSUS ECONOMIC CLAIMS ON LAND IN NORTH-EASTERN MADAGASCAR"                                                                  
+    ##  [2] "NATURAL GAS OVERVIEW FOR WORLD ECONOMY: FROM PRIMARY SUPPLY TO FINAL DEMAND VIA GLOBAL SUPPLY CHAINS"                                                                                           
+    ##  [3] "DYNAMIC INPUT-OUTPUT ANALYSIS FOR ENERGY METABOLISM SYSTEM IN THE PROVINCE OF GUANGDONG, CHINA"                                                                                                 
+    ##  [4] "EVOLUTION OF THE SCIENTIFIC LITERATURE ON INPUT-OUTPUT ANALYSIS: A BIBLIOMETRIC ANALYSIS OF 1990-2017"                                                                                          
+    ##  [5] "VISUALIZING THE CHANGE OF EMBODIED CO2 EMISSIONS ALONG GLOBAL PRODUCTION CHAINS"                                                                                                                
+    ##  [6] "A NETWORK ANALYSIS OF INDIRECT CARBON EMISSION FLOWS AMONG DIFFERENT INDUSTRIES IN CHINA"                                                                                                       
+    ##  [7] "AN OVERVIEW OF ARABLE LAND USE FOR THE WORLD ECONOMY: FROM SOURCE TO SINK VIA THE GLOBAL SUPPLY CHAIN"                                                                                          
+    ##  [8] "SYSTEMIC RISK IN THE GLOBAL WATER INPUT-OUTPUT NETWORK"                                                                                                                                         
+    ##  [9] "INDUSTRIAL CHARACTERISTICS AND CONSUMPTION EFFICIENCY FROM A NEXUS PERSPECTIVE - BASED ON ANHUI'S EMPIRICAL STATISTICS"                                                                         
+    ## [10] "AN INQUIRY INTO WATER TRANSFER NETWORK OF THE YANGTZE RIVER ECONOMIC BELT IN CHINA"                                                                                                             
+    ## [11] "EMERGY NETWORK ANALYSIS OF CHINESE SECTORAL ECOLOGICAL SUSTAINABILITY"                                                                                                                          
+    ## [12] "GLOBAL ENERGY FLOWS EMBODIED IN INTERNATIONAL TRADE: A COMBINATION OF ENVIRONMENTALLY EXTENDED INPUT-OUTPUT ANALYSIS AND COMPLEX NETWORK ANALYSIS"                                              
+    ## [13] "FLOWBCA: A FLOW-BASED CLUSTER ALGORITHM IN STATA"                                                                                                                                               
+    ## [14] "EXAMINING INDUSTRIAL STRUCTURE CHANGES AND CORRESPONDING CARBON EMISSION REDUCTION EFFECT BY COMBINING INPUT-OUTPUT ANALYSIS AND SOCIAL NETWORK ANALYSIS: A COMPARISON STUDY OF CHINA AND JAPAN"
+    ## [15] "ASSESSING THE URBAN CARBON FOOTPRINT: AN OVERVIEW"                                                                                                                                              
+    ## [16] "IDENTIFY SECTORS' ROLE ON THE EMBEDDED CO2 TRANSFER NETWORKS THROUGH CHINA'S REGIONAL TRADE"                                                                                                    
+    ## [17] "NETWORK ANALYSIS OF INTER-SECTORAL RELATIONSHIPS AND KEY SECTORS IN THE GREEK ECONOMY"                                                                                                          
+    ## [18] "AN URBAN METABOLISM AND CARBON FOOTPRINT ANALYSIS OF THE JING-JIN-JI REGIONAL AGGLOMERATION"                                                                                                    
+    ## [19] "AUSTRALIA'S REGIONAL INNOVATION SYSTEMS: INTER-INDUSTRY INTERACTION IN INNOVATIVE ACTIVITIES IN THREE AUSTRALIAN TERRITORIES"                                                                   
+    ## [20] "URBAN ENERGY-WATER NEXUS: A NETWORK PERSPECTIVE"                                                                                                                                                
+    ## [21] "UNEQUAL CARBON EXCHANGES THE ENVIRONMENTAL AND ECONOMIC IMPACTS OF ICONIC US CONSUMPTION ITEMS"                                                                                                 
+    ## [22] "WEALTH AND POLLUTION INEQUALITIES OF GLOBAL TRADE: A NETWORK AND INPUT-OUTPUT APPROACH"                                                                                                         
+    ## [23] "ANALYSIS OF URBAN ENERGY CONSUMPTION IN CARBON METABOLIC PROCESSES AND ITS STRUCTURAL ATTRIBUTES: A CASE STUDY FOR BEIJING"                                                                     
+    ## [24] "ECOSYSTEM NETWORK ANALYSIS INDICATORS ARE GENERALLY ROBUST TO PARAMETER UNCERTAINTY IN A PHOSPHORUS MODEL OF LAKE SIDNEY LANIER, USA"                                                           
+    ## [25] "APPLYING SOCIAL NETWORK ANALYSIS TO INPUT-OUTPUT BASED INNOVATION MATRICES: AN ILLUSTRATIVE APPLICATION TO SIX OECD TECHNOLOGICAL SYSTEMS FOR THE MIDDLE 1990S"                                 
+    ## [26] "INPUT-OUTPUT ANALYSIS AND CARBON FOOTPRINTING: AN OVERVIEW OF APPLICATIONS"                                                                                                                     
+    ## [27] "LEAST-INFERENCE METHODS FOR CONSTRUCTING NETWORKS OF TROPHIC FLOWS"                                                                                                                             
+    ## [28] "THEORY OF MATERIALS AND ENERGY FLOW ANALYSIS IN ECOLOGY AND ECONOMICS"                                                                                                                          
+    ## [29] "NETWORK ANALYSIS APPLIED TO LARGE-SCALE CYBER-ECOSYSTEMS"                                                                                                                                       
+    ## [30] "NETWORK SYNERGISM: EMERGENCE OF POSITIVE RELATIONS IN ECOLOGICAL SYSTEMS"                                                                                                                       
+    ## [31] "CARBON BUDGET AND NETWORK ANALYSIS OF A HIGH-ENERGY BEACH/SURF-ZONE ECOSYSTEM"                                                                                                                  
+    ## [32] "NETWORK ANALYSIS AS A TOOL FOR QUANTIFYING THE DYNAMICS OF METACOUPLED SYSTEMS: AN EXAMPLE USING GLOBAL SOYBEAN TRADE"                                                                          
+    ## [33] "LINKING AGRICULTURAL GHG EMISSIONS TO GLOBAL TRADE NETWORK"                                                                                                                                     
+    ## [34] "EVOLUTION OF VIRTUAL WATER METABOLIC NETWORK IN DEVELOPING REGIONS: A CASE STUDY OF GUANGDONG PROVINCE"                                                                                         
+    ## [35] "CARBON COMMUNITIES AND HOTSPOTS FOR CARBON EMISSIONS REDUCTION IN CHINA"                                                                                                                        
+    ## [36] "ENERGY FOOTPRINT PATHWAYS OF CHINA"                                                                                                                                                             
+    ## [37] "A STUDY ON EMBODIED CARBON TRANSFER AT THE PROVINCIAL LEVEL OF CHINA FROM A SOCIAL NETWORK PERSPECTIVE"                                                                                         
+    ## [38] "LINKAGE ANALYSIS OF TOURISM-RELATED SECTORS IN CHINA: AN ASSESSMENT BASED ON NETWORK ANALYSIS TECHNIQUE"                                                                                        
+    ## [39] "ENERGY-INDUCED MERCURY EMISSIONS IN GLOBAL SUPPLY CHAIN NETWORKS: STRUCTURAL CHARACTERISTICS AND POLICY IMPLICATIONS"                                                                           
+    ## [40] "GLOBAL SOCIO-HYDROLOGY: AN OVERVIEW OF VIRTUAL WATER USE BY THE WORLD ECONOMY FROM SOURCE OF EXPLOITATION TO SINK OF FINAL CONSUMPTION"                                                         
+    ## [41] "GLOBAL OVERVIEW OF CRUDE OIL USE: FROM SOURCE TO SINK THROUGH INTER-REGIONAL TRADE"                                                                                                             
+    ## [42] "ENERGY USE IN WORLD ECONOMY FROM HOUSEHOLD-CONSUMPTION-BASED PERSPECTIVE"                                                                                                                       
+    ## [43] "NETWORK ANALYSIS OF DIFFERENT TYPES OF FOOD FLOWS: ESTABLISHING THE INTERACTION BETWEEN FOOD FLOWS AND ECONOMIC FLOWS"
 
-Metrics
--------
+QUERY: Metrics
+--------------
 
     io.bdf[q.met, c("TI")]
 
@@ -316,62 +331,59 @@ Metrics
     ## [20] "LOSS AND BENEFIT CAUSED BY A DIESEL ENGINE FROM THE PERSPECTIVE OF HUMAN HEALTH"                                                                                                     
     ## [21] "CARBON FOOTPRINT STOCK ANALYSIS OF US MANUFACTURING: A TIME SERIES INPUT-OUTPUT LCA"                                                                                                 
     ## [22] "THE VIRTUAL IELAB - AN EXERCISE IN REPLICATING PART OF THE EXIOBASE V.2 PRODUCTION PIPELINE IN A VIRTUAL LABORATORY"                                                                 
-    ## [23] "SUSTAINABILITY CHALLENGES, HUMAN DIET AND ENVIRONMENTAL CONCERNS"                                                                                                                    
-    ## [24] "REGIONAL DISTRIBUTION AND LOSSES OF END-OF-LIFE STEEL THROUGHOUT MULTIPLE PRODUCT LIFE CYCLES INSIGHTS FROM THE GLOBAL MULTIREGIONAL MATRACE MODEL"                                  
-    ## [25] "A FUZZY DATA ENVELOPMENT ANALYSIS FRAMEWORK FOR DEALING WITH UNCERTAINTY IMPACTS OF INPUT-OUTPUT LIFE CYCLE ASSESSMENT MODELS ON ECO-EFFICIENCY ASSESSMENT"                          
-    ## [26] "TRACKING INTER-REGIONAL CARBON FLOWS: A HYBRID NETWORK MODEL"                                                                                                                        
-    ## [27] "ESTIMATION OF ECONOMIC IMPACTS OF CELLULOSIC BIOFUEL PRODUCTION: A COMPARATIVE ANALYSIS OF THREE BIOFUEL PATHWAYS"                                                                   
-    ## [28] "INTEGRATING EXPERT WEIGHTING AND MULTI-CRITERIA DECISION MAKING INTO ECO-EFFICIENCY ANALYSIS: THE CASE OF US MANUFACTURING"                                                          
-    ## [29] "AN INTEGRATED MODEL FOR MARINE FISHERY MANAGEMENT IN THE PEARL RIVER ESTUARY: LINKING SOCIO-ECONOMIC SYSTEMS AND ECOSYSTEMS"                                                         
-    ## [30] "INPUT-OUTPUT LIFE CYCLE ENVIRONMENTAL ASSESSMENT OF GREENHOUSE GAS EMISSIONS FROM UTILITY SCALE WIND ENERGY IN THE UNITED STATES"                                                    
-    ## [31] "ACCOUNTING FOR HIDDEN ENERGY DEPENDENCY: THE IMPACT OF ENERGY EMBODIED IN TRADED GOODS ON CROSS-COUNTRY ENERGY SECURITY ASSESSMENTS"                                                 
-    ## [32] "RISK ASSESSMENT OF THE ECONOMIC IMPACTS OF CLIMATE CHANGE ON THE IMPLEMENTATION OF MANDATORY BIODIESEL BLENDING PROGRAMS: A FUZZY INOPERABILITY INPUT-OUTPUT MODELING (IIM) APPROACH"
-    ## [33] "FLOW DISTANCES ON OPEN FLOW NETWORKS"                                                                                                                                                
-    ## [34] "TRADING LAND: A REVIEW OF APPROACHES TO ACCOUNTING FOR UPSTREAM LAND REQUIREMENTS OF TRADED PRODUCTS"                                                                                
-    ## [35] "A NETWORK OF NETWORKS PERSPECTIVE ON GLOBAL TRADE"                                                                                                                                   
-    ## [36] "THE FOOTPRINT OF USING METALS: NEW METRICS OF CONSUMPTION AND PRODUCTIVITY"                                                                                                          
-    ## [37] "LABOR EMBODIED IN TRADE: THE ROLE OF LABOR AND ENERGY PRODUCTIVITY AND IMPLICATIONS FOR GREENHOUSE GAS EMISSIONS"                                                                    
-    ## [38] "A STOCHASTIC RECOVERY MODEL OF INFLUENZA PANDEMIC EFFECTS ON INTERDEPENDENT WORKFORCE SYSTEMS"                                                                                       
-    ## [39] "EQUIVALENCE OF THE REALIZED INPUT AND OUTPUT ORIENTED INDIRECT EFFECTS METRICS IN ECOLOGICAL NETWORK ANALYSIS"                                                                       
-    ## [40] "INVENTORY DEVELOPMENT AND INPUT-OUTPUT MODEL OF US LAND USE: RELATING LAND IN PRODUCTION TO CONSUMPTION"                                                                             
-    ## [41] "EMERGY ANALYSIS USING US ECONOMIC INPUT-OUTPUT MODELS WITH APPLICATIONS TO LIFE CYCLES OF GASOLINE AND CORN ETHANOL"                                                                 
-    ## [42] "GREENHOUSE GAS EMISSIONS IN HAWAI'I: HOUSEHOLD AND VISITOR EXPENDITURE ANALYSIS"                                                                                                     
-    ## [43] "SOLUTIONS TO STRATEGIC SUPPLY CHAIN MAPPING ISSUES"                                                                                                                                  
-    ## [44] "1,3-PROPANEDIOL FROM FOSSILS VERSUS BIOMASS: A LIFE CYCLE EVALUATION OF EMISSIONS AND ECOLOGICAL RESOURCES"                                                                          
-    ## [45] "ECOLOGICAL INPUT-OUTPUT ANALYSIS-BASED SUSTAINABILITY ANALYSIS OF INDUSTRIAL SYSTEMS"                                                                                                
-    ## [46] "MEASURING MATERIAL CYCLING IN INDUSTRIAL SYSTEMS"                                                                                                                                    
-    ## [47] "A FRAMEWORK FOR LINKING CYBERSECURITY METRICS TO THE MODELING OF MACROECONOMIC INTERDEPENDENCIES"                                                                                    
-    ## [48] "INDUSTRIAL AND ECOLOGICAL CUMULATIVE EXERGY CONSUMPTION OF THE UNITED STATES VIA THE 1997 INPUT-OUTPUT BENCHMARK MODEL"                                                              
-    ## [49] "FLOW OF NATURAL VERSUS ECONOMIC CAPITAL IN INDUSTRIAL SUPPLY NETWORKS AND ITS IMPLICATIONS TO SUSTAINABILITY"                                                                        
-    ## [50] "HIERARCHICAL THERMODYNAMIC METRICS FOR EVALUATING THE ENVIRONMENTAL SUSTAINABILITY OF INDUSTRIAL PROCESSES"                                                                          
-    ## [51] "THERMODYNAMIC ACCOUNTING OF ECOSYSTEM CONTRIBUTION TO ECONOMIC SECTORS WITH APPLICATION TO 1992 US ECONOMY"                                                                          
-    ## [52] "A HIERARCHIC METRIC APPROACH FOR INTEGRATION OF GREEN ISSUES IN MANUFACTURING: A PAPER RECYCLING APPLICATION"                                                                        
-    ## [53] "MATERIAL FLOW CHALLENGES IN INDUSTRIAL ECOSYSTEMS"                                                                                                                                   
-    ## [54] "SUPPLY CHAIN COORDINATION IN SPATIAL GAMES"                                                                                                                                          
-    ## [55] "ENVIRONMENTAL IMPLICATIONS OF SERVICE INDUSTRIES"                                                                                                                                    
-    ## [56] "INPUT-OUTPUT-ANALYSIS OF ENERGY-REQUIREMENTS FOR SHORT ROTATION, INTENSIVE CULTURE, WOODY BIOMASS"                                                                                   
-    ## [57] "HISTORICAL GLOBAL GRIDDED DEGREE-DAYS: A HIGH-SPATIAL RESOLUTION DATABASE OF CDD AND HDD"                                                                                            
-    ## [58] "RECENT CLIMATOLOGICAL TRENDS AND POTENTIAL INFLUENCES ON FOREST PHENOLOGY AROUND WESTERN LAKE SUPERIOR, USA"                                                                         
-    ## [59] "HOW WELL CAN CMIP5 SIMULATE PRECIPITATION AND ITS CONTROLLING PROCESSES OVER TROPICAL SOUTH AMERICA?"                                                                                
-    ## [60] "THE ASIAN SUMMER MONSOON: AN INTERCOMPARISON OF CMIP5 VS. CMIP3 SIMULATIONS OF THE LATE 20TH CENTURY"                                                                                
-    ## [61] "OUTSOURCING, TRADE, TECHNOLOGY, AND GREENHOUSE GAS EMISSIONS"                                                                                                                        
-    ## [62] "CARBON FOOTPRINT OF JAPANESE HEALTH CARE SERVICES FROM 2011 TO 2015"                                                                                                                 
-    ## [63] "LIFE CYCLE SUSTAINABILITY ASSESSMENT OF AUTONOMOUS HEAVY-DUTY TRUCKS"                                                                                                                
-    ## [64] "THE CIRCULARITY GAP OF NATIONS: A MULTIREGIONAL ANALYSIS OF WASTE GENERATION, RECOVERY, AND STOCK DEPLETION IN 2011"                                                                 
-    ## [65] "CARBON COMMUNITIES AND HOTSPOTS FOR CARBON EMISSIONS REDUCTION IN CHINA"                                                                                                             
-    ## [66] "DOES THE STRUCTURE OF INTERSECTORAL EMBEDDED CARBON FLOW NETWORK MATTER TO CARBON REDUCTION IN CHINA?"                                                                               
-    ## [67] "ASSESSING REGIONAL AND GLOBAL ENVIRONMENTAL FOOTPRINTS AND VALUE ADDED OF THE LARGEST FOOD PRODUCERS IN THE WORLD"                                                                   
-    ## [68] "THE RAW MATERIAL BASIS OF GLOBAL VALUE CHAINS: ALLOCATING ENVIRONMENTAL RESPONSIBILITY BASED ON VALUE GENERATION"                                                                    
-    ## [69] "A METHOD FOR ECONOMIC INPUT-OUTPUT SOCIAL IMPACT ANALYSIS WITH APPLICATION TO US ADVANCED MANUFACTURING"
+    ## [23] "REGIONAL DISTRIBUTION AND LOSSES OF END-OF-LIFE STEEL THROUGHOUT MULTIPLE PRODUCT LIFE CYCLES INSIGHTS FROM THE GLOBAL MULTIREGIONAL MATRACE MODEL"                                  
+    ## [24] "A FUZZY DATA ENVELOPMENT ANALYSIS FRAMEWORK FOR DEALING WITH UNCERTAINTY IMPACTS OF INPUT-OUTPUT LIFE CYCLE ASSESSMENT MODELS ON ECO-EFFICIENCY ASSESSMENT"                          
+    ## [25] "TRACKING INTER-REGIONAL CARBON FLOWS: A HYBRID NETWORK MODEL"                                                                                                                        
+    ## [26] "ESTIMATION OF ECONOMIC IMPACTS OF CELLULOSIC BIOFUEL PRODUCTION: A COMPARATIVE ANALYSIS OF THREE BIOFUEL PATHWAYS"                                                                   
+    ## [27] "INTEGRATING EXPERT WEIGHTING AND MULTI-CRITERIA DECISION MAKING INTO ECO-EFFICIENCY ANALYSIS: THE CASE OF US MANUFACTURING"                                                          
+    ## [28] "AN INTEGRATED MODEL FOR MARINE FISHERY MANAGEMENT IN THE PEARL RIVER ESTUARY: LINKING SOCIO-ECONOMIC SYSTEMS AND ECOSYSTEMS"                                                         
+    ## [29] "INPUT-OUTPUT LIFE CYCLE ENVIRONMENTAL ASSESSMENT OF GREENHOUSE GAS EMISSIONS FROM UTILITY SCALE WIND ENERGY IN THE UNITED STATES"                                                    
+    ## [30] "ACCOUNTING FOR HIDDEN ENERGY DEPENDENCY: THE IMPACT OF ENERGY EMBODIED IN TRADED GOODS ON CROSS-COUNTRY ENERGY SECURITY ASSESSMENTS"                                                 
+    ## [31] "RISK ASSESSMENT OF THE ECONOMIC IMPACTS OF CLIMATE CHANGE ON THE IMPLEMENTATION OF MANDATORY BIODIESEL BLENDING PROGRAMS: A FUZZY INOPERABILITY INPUT-OUTPUT MODELING (IIM) APPROACH"
+    ## [32] "FLOW DISTANCES ON OPEN FLOW NETWORKS"                                                                                                                                                
+    ## [33] "TRADING LAND: A REVIEW OF APPROACHES TO ACCOUNTING FOR UPSTREAM LAND REQUIREMENTS OF TRADED PRODUCTS"                                                                                
+    ## [34] "A NETWORK OF NETWORKS PERSPECTIVE ON GLOBAL TRADE"                                                                                                                                   
+    ## [35] "THE FOOTPRINT OF USING METALS: NEW METRICS OF CONSUMPTION AND PRODUCTIVITY"                                                                                                          
+    ## [36] "LABOR EMBODIED IN TRADE: THE ROLE OF LABOR AND ENERGY PRODUCTIVITY AND IMPLICATIONS FOR GREENHOUSE GAS EMISSIONS"                                                                    
+    ## [37] "A STOCHASTIC RECOVERY MODEL OF INFLUENZA PANDEMIC EFFECTS ON INTERDEPENDENT WORKFORCE SYSTEMS"                                                                                       
+    ## [38] "EQUIVALENCE OF THE REALIZED INPUT AND OUTPUT ORIENTED INDIRECT EFFECTS METRICS IN ECOLOGICAL NETWORK ANALYSIS"                                                                       
+    ## [39] "INVENTORY DEVELOPMENT AND INPUT-OUTPUT MODEL OF US LAND USE: RELATING LAND IN PRODUCTION TO CONSUMPTION"                                                                             
+    ## [40] "EMERGY ANALYSIS USING US ECONOMIC INPUT-OUTPUT MODELS WITH APPLICATIONS TO LIFE CYCLES OF GASOLINE AND CORN ETHANOL"                                                                 
+    ## [41] "GREENHOUSE GAS EMISSIONS IN HAWAI'I: HOUSEHOLD AND VISITOR EXPENDITURE ANALYSIS"                                                                                                     
+    ## [42] "SOLUTIONS TO STRATEGIC SUPPLY CHAIN MAPPING ISSUES"                                                                                                                                  
+    ## [43] "1,3-PROPANEDIOL FROM FOSSILS VERSUS BIOMASS: A LIFE CYCLE EVALUATION OF EMISSIONS AND ECOLOGICAL RESOURCES"                                                                          
+    ## [44] "ECOLOGICAL INPUT-OUTPUT ANALYSIS-BASED SUSTAINABILITY ANALYSIS OF INDUSTRIAL SYSTEMS"                                                                                                
+    ## [45] "MEASURING MATERIAL CYCLING IN INDUSTRIAL SYSTEMS"                                                                                                                                    
+    ## [46] "A FRAMEWORK FOR LINKING CYBERSECURITY METRICS TO THE MODELING OF MACROECONOMIC INTERDEPENDENCIES"                                                                                    
+    ## [47] "INDUSTRIAL AND ECOLOGICAL CUMULATIVE EXERGY CONSUMPTION OF THE UNITED STATES VIA THE 1997 INPUT-OUTPUT BENCHMARK MODEL"                                                              
+    ## [48] "FLOW OF NATURAL VERSUS ECONOMIC CAPITAL IN INDUSTRIAL SUPPLY NETWORKS AND ITS IMPLICATIONS TO SUSTAINABILITY"                                                                        
+    ## [49] "HIERARCHICAL THERMODYNAMIC METRICS FOR EVALUATING THE ENVIRONMENTAL SUSTAINABILITY OF INDUSTRIAL PROCESSES"                                                                          
+    ## [50] "THERMODYNAMIC ACCOUNTING OF ECOSYSTEM CONTRIBUTION TO ECONOMIC SECTORS WITH APPLICATION TO 1992 US ECONOMY"                                                                          
+    ## [51] "A HIERARCHIC METRIC APPROACH FOR INTEGRATION OF GREEN ISSUES IN MANUFACTURING: A PAPER RECYCLING APPLICATION"                                                                        
+    ## [52] "ENVIRONMENTAL IMPLICATIONS OF SERVICE INDUSTRIES"                                                                                                                                    
+    ## [53] "INPUT-OUTPUT-ANALYSIS OF ENERGY-REQUIREMENTS FOR SHORT ROTATION, INTENSIVE CULTURE, WOODY BIOMASS"                                                                                   
+    ## [54] "HISTORICAL GLOBAL GRIDDED DEGREE-DAYS: A HIGH-SPATIAL RESOLUTION DATABASE OF CDD AND HDD"                                                                                            
+    ## [55] "RECENT CLIMATOLOGICAL TRENDS AND POTENTIAL INFLUENCES ON FOREST PHENOLOGY AROUND WESTERN LAKE SUPERIOR, USA"                                                                         
+    ## [56] "HOW WELL CAN CMIP5 SIMULATE PRECIPITATION AND ITS CONTROLLING PROCESSES OVER TROPICAL SOUTH AMERICA?"                                                                                
+    ## [57] "THE ASIAN SUMMER MONSOON: AN INTERCOMPARISON OF CMIP5 VS. CMIP3 SIMULATIONS OF THE LATE 20TH CENTURY"                                                                                
+    ## [58] "OUTSOURCING, TRADE, TECHNOLOGY, AND GREENHOUSE GAS EMISSIONS"                                                                                                                        
+    ## [59] "CARBON FOOTPRINT OF JAPANESE HEALTH CARE SERVICES FROM 2011 TO 2015"                                                                                                                 
+    ## [60] "LIFE CYCLE SUSTAINABILITY ASSESSMENT OF AUTONOMOUS HEAVY-DUTY TRUCKS"                                                                                                                
+    ## [61] "THE CIRCULARITY GAP OF NATIONS: A MULTIREGIONAL ANALYSIS OF WASTE GENERATION, RECOVERY, AND STOCK DEPLETION IN 2011"                                                                 
+    ## [62] "CARBON COMMUNITIES AND HOTSPOTS FOR CARBON EMISSIONS REDUCTION IN CHINA"                                                                                                             
+    ## [63] "DOES THE STRUCTURE OF INTERSECTORAL EMBEDDED CARBON FLOW NETWORK MATTER TO CARBON REDUCTION IN CHINA?"                                                                               
+    ## [64] "ASSESSING REGIONAL AND GLOBAL ENVIRONMENTAL FOOTPRINTS AND VALUE ADDED OF THE LARGEST FOOD PRODUCERS IN THE WORLD"                                                                   
+    ## [65] "THE RAW MATERIAL BASIS OF GLOBAL VALUE CHAINS: ALLOCATING ENVIRONMENTAL RESPONSIBILITY BASED ON VALUE GENERATION"                                                                    
+    ## [66] "A METHOD FOR ECONOMIC INPUT-OUTPUT SOCIAL IMPACT ANALYSIS WITH APPLICATION TO US ADVANCED MANUFACTURING"
 
-    io.bdf[q.met & q.ml, c("TI")]
+    io.bdf[q.met & q.land, c("TI")]
 
     ## [1] "MODELLING MULTI-REGIONAL ECOLOGICAL EXCHANGES: THE CASE OF UK AND AFRICA"                               
     ## [2] "TRADING LAND: A REVIEW OF APPROACHES TO ACCOUNTING FOR UPSTREAM LAND REQUIREMENTS OF TRADED PRODUCTS"   
     ## [3] "INVENTORY DEVELOPMENT AND INPUT-OUTPUT MODEL OF US LAND USE: RELATING LAND IN PRODUCTION TO CONSUMPTION"
 
-Resilience
-----------
+QUERY: Resilience
+-----------------
 
     io.bdf[q.res, c("TI")]
 
@@ -411,44 +423,44 @@ Literature Review: Methods and Background
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Land</td>
-<td align="right">180</td>
-<td align="right">5.32</td>
+<td align="left">IO_MRIO</td>
+<td align="right">2005</td>
+<td align="right">62.62</td>
 </tr>
 <tr class="even">
-<td align="left">Network</td>
-<td align="right">37</td>
-<td align="right">1.09</td>
+<td align="left">Land</td>
+<td align="right">171</td>
+<td align="right">5.34</td>
 </tr>
 <tr class="odd">
-<td align="left">ENA</td>
-<td align="right">35</td>
-<td align="right">1.03</td>
+<td align="left">Climate Change</td>
+<td align="right">174</td>
+<td align="right">5.43</td>
 </tr>
 <tr class="even">
 <td align="left">Resilience</td>
 <td align="right">13</td>
-<td align="right">0.38</td>
+<td align="right">0.41</td>
 </tr>
 <tr class="odd">
-<td align="left">Disturbance</td>
-<td align="right">0</td>
-<td align="right">0.00</td>
+<td align="left">Metric</td>
+<td align="right">66</td>
+<td align="right">2.06</td>
 </tr>
 <tr class="even">
-<td align="left">Climate Change</td>
-<td align="right">182</td>
-<td align="right">5.38</td>
+<td align="left">Network</td>
+<td align="right">36</td>
+<td align="right">1.12</td>
 </tr>
 <tr class="odd">
-<td align="left">Coupled Human-Natural</td>
+<td align="left">ENA</td>
+<td align="right">32</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="even">
+<td align="left">CHNS</td>
 <td align="right">7</td>
-<td align="right">0.21</td>
-</tr>
-<tr class="even">
-<td align="left">Metrics</td>
-<td align="right">69</td>
-<td align="right">2.04</td>
+<td align="right">0.22</td>
 </tr>
 <tr class="odd">
 <td align="left">Land Metrics</td>
@@ -456,25 +468,32 @@ Literature Review: Methods and Background
 <td align="right">0.09</td>
 </tr>
 <tr class="even">
-<td align="left">Review or Overview</td>
-<td align="right">19</td>
+<td align="left">Review</td>
+<td align="right">18</td>
 <td align="right">0.56</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">3202</td>
+<td align="right">100.00</td>
 </tr>
 </tbody>
 </table>
 
     export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
 
-    ## [1] "Disturbance had length zero and was removed."
-    ## [1] "Land.csv"                  "Network.csv"              
-    ## [3] "ENA.csv"                   "Resilience.csv"           
-    ## [5] "Climate_Change.csv"        "Coupled_Human-Natural.csv"
-    ## [7] "Metrics.csv"               "Land_Metrics.csv"         
-    ## [9] "Review_or_Overview.csv"   
+    ##  [1] "IO_MRIO.csv"        "Land.csv"           "Climate_Change.csv"
+    ##  [4] "Resilience.csv"     "Metric.csv"         "Network.csv"       
+    ##  [7] "ENA.csv"            "CHNS.csv"           "Land_Metrics.csv"  
+    ## [10] "Review.csv"        
     ## [1] "Successfully written to data/wos-mrio_query"
 
-    mk_review(io.bdf, q.all, file = "results/wos_review.md", overwrite = TRUE)
+    mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
 
+<!-- q.all <- list("IO_MRIO" = q.mrio, Land = q.land, Resilience = q.res, -->
+<!--              "Climate Change" = q.mc,  -->
+<!--              Metric = q.met, Network = q.net, ENA = q.ena, CHNS = q.chns,  -->
+<!--              "Land Metrics" = q.met.land, Review = (q.rev | q.ov)) -->
 Searched and Reviewed "Land" Query
 ----------------------------------
 
