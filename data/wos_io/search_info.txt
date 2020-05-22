@@ -1,6 +1,35 @@
 Web of Science Search
 =====================
 
+TS= ("land-system* science" OR 
+"land system* science" OR
+telecoupl* OR 
+teleconnection OR
+"input-output analysis" OR 
+"input output analysis" OR 
+"multi-regional input-output" OR 
+"multiregional input-output" OR 
+"multi-regional input output" OR 
+"multiregional input output" OR 
+"multi regional input-output" OR 
+"multi regional input output" OR 
+"economic input-output" OR
+"economic input output" OR 
+"ecological economics")
+Timespan: All years. 
+
+
+Fri 22 May 2020 02:57:31 PM EDT
+Results: 9,679 (from Web of Science Core Collection) You searched for:
+TS= ("land-system* science" OR "land system* science" OR telecoupl* OR
+teleconnection OR "input-output analysis" OR "input output analysis"
+OR "multi-regional input-output" OR "multiregional input-output" OR
+"multi-regional input output" OR "multiregional input output" OR
+"multi regional input-output" OR "multi regional input output" OR
+"economic input-output" OR "economic input output" OR "ecological
+economics") Timespan: All years. Indexes: SCI-EXPANDED, SSCI, A&HCI,
+CPCI-S, CPCI-SSH, BKCI-S, BKCI-SSH, ESCI, CCR-EXPANDED, IC.
+
 Wed 22 Apr 2020 02:08:04 PM EDT
 Results: 4,155 (from Web of Science Core Collection)
 You searched for: 
