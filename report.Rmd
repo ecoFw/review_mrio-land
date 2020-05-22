@@ -271,7 +271,7 @@ io.bdf[q.res, c("TI")]
 
 ```{r key-words, echo = TRUE, message = FALSE, warning = FALSE}
 
-kw <- gsub(";", "", unlist(strsplit(io.bdf[, "DE"], split = "; ")))
+kw <- gsub(";", "", unlist(strsplit(io.bdf[q.land, "DE"], split = "; ")))
 kw <- sapply(kw, rm.spch)
 kw <- unlist(strsplit(kw, " "))
 kw.tab <- table(kw)

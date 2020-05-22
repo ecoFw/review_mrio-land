@@ -1,4 +1,4 @@
-xbplan <- drake_plan(
+plan <- drake_plan(
 ### Load data
     io.raw = convert2df("data/wos_io.bib", dbsource = "wos", format = "bibtex"),
 ### Data wrangling

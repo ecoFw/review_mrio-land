@@ -404,7 +404,7 @@ QUERY: Resilience
 Literature Review: Methods and Background
 =========================================
 
-    kw <- gsub(";", "", unlist(strsplit(io.bdf[, "DE"], split = "; ")))
+    kw <- gsub(";", "", unlist(strsplit(io.bdf[q.land, "DE"], split = "; ")))
     kw <- sapply(kw, rm.spch)
     kw <- unlist(strsplit(kw, " "))
     kw.tab <- table(kw)
