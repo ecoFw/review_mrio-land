@@ -132,9 +132,7 @@ mk_review <- function(df = "bibliographic data frame", ql = "Named query list", 
             }
             bo[[i]] <- c("", 
                          "", 
-                         sc[[i]],
-                         "",
-                         length(refs),
+                         paste(sc[[i]], length(refs)),
                          "",
                          paste("-", refs)
                              )

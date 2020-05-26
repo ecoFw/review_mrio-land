@@ -333,14 +333,14 @@ Processing papers compiled in results/wos_review.md
 
 We found three published reviews/overviews that examine the indirect
 effects of consumption on landscapes. The most recent by
-@ISI:000435619900021 conducted a global analysis of indirect land
+ISI:000435619900021 conducted a global analysis of indirect land
 consumption. They found stark disparaties arable land consumption
-among countries world-wide. @ISI:000363267800003 conducted a review of
+among countries world-wide. ISI:000363267800003 conducted a review of
 methods for accounting for upstream land-use in traded products and
 focusing on two major approaches, accounting based approaches and
 environmentally extended input-output analyses, to clarify underlying
 conceptual issues with accounting for land-use. The third review by
-@ISI:000355026400002 evaluated accounting and evaluation methods used
+ISI:000355026400002 evaluated accounting and evaluation methods used
 in calculating land footprints and point to options for further
 developing footprint accountting methods, highlighting advantages of
 hybridizing different approaches and increasing transparency in

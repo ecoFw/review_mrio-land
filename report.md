@@ -510,29 +510,19 @@ Literature Review: Methods and Background
 <td align="right">29.62</td>
 </tr>
 <tr class="even">
+<td align="left">Review</td>
+<td align="right">35</td>
+<td align="right">0.45</td>
+</tr>
+<tr class="odd">
 <td align="left">Land</td>
-<td align="right">238</td>
-<td align="right">3.07</td>
-</tr>
-<tr class="odd">
-<td align="left">Climate Change</td>
-<td align="right">1045</td>
-<td align="right">13.48</td>
+<td align="right">63</td>
+<td align="right">0.81</td>
 </tr>
 <tr class="even">
-<td align="left">Resilience</td>
-<td align="right">28</td>
-<td align="right">0.36</td>
-</tr>
-<tr class="odd">
-<td align="left">Metric</td>
-<td align="right">127</td>
-<td align="right">1.64</td>
-</tr>
-<tr class="even">
-<td align="left">Network</td>
-<td align="right">39</td>
-<td align="right">0.50</td>
+<td align="left">Land Metrics</td>
+<td align="right">4</td>
+<td align="right">0.05</td>
 </tr>
 <tr class="odd">
 <td align="left">ENA</td>
@@ -540,19 +530,29 @@ Literature Review: Methods and Background
 <td align="right">0.45</td>
 </tr>
 <tr class="even">
+<td align="left">Network</td>
+<td align="right">39</td>
+<td align="right">0.50</td>
+</tr>
+<tr class="odd">
 <td align="left">CHNS</td>
 <td align="right">8</td>
 <td align="right">0.10</td>
 </tr>
+<tr class="even">
+<td align="left">Climate Change</td>
+<td align="right">68</td>
+<td align="right">0.88</td>
+</tr>
 <tr class="odd">
-<td align="left">Land Metrics</td>
-<td align="right">4</td>
-<td align="right">0.05</td>
+<td align="left">Resilience</td>
+<td align="right">28</td>
+<td align="right">0.36</td>
 </tr>
 <tr class="even">
-<td align="left">Review</td>
-<td align="right">35</td>
-<td align="right">0.45</td>
+<td align="left">Metric</td>
+<td align="right">55</td>
+<td align="right">0.71</td>
 </tr>
 <tr class="odd">
 <td align="left">Total</td>
@@ -564,10 +564,10 @@ Literature Review: Methods and Background
 
     export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
 
-    ##  [1] "IO_MRIO.csv"        "Land.csv"           "Climate_Change.csv"
-    ##  [4] "Resilience.csv"     "Metric.csv"         "Network.csv"       
-    ##  [7] "ENA.csv"            "CHNS.csv"           "Land_Metrics.csv"  
-    ## [10] "Review.csv"        
+    ##  [1] "IO_MRIO.csv"        "Review.csv"         "Land.csv"          
+    ##  [4] "Land_Metrics.csv"   "ENA.csv"            "Network.csv"       
+    ##  [7] "CHNS.csv"           "Climate_Change.csv" "Resilience.csv"    
+    ## [10] "Metric.csv"        
     ## [1] "Successfully written to data/wos-mrio_query"
 
     mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
@@ -594,7 +594,18 @@ What reviews are published on the topic of network analysis of landscape extende
 ---------------------------------------------------------------------------------------
 
 We found three published reviews/overviews that examine the indirect
-effects of consumption on landscapes. The most recent,
+effects of consumption on landscapes. The most recent by
+ISI:000435619900021 conducted a global analysis of indirect land
+consumption. They found stark disparaties arable land consumption among
+countries world-wide. ISI:000363267800003 conducted a review of methods
+for accounting for upstream land-use in traded products and focusing on
+two major approaches, accounting based approaches and environmentally
+extended input-output analyses, to clarify underlying conceptual issues
+with accounting for land-use. The third review by ISI:000355026400002
+evaluated accounting and evaluation methods used in calculating land
+footprints and point to options for further developing footprint
+accountting methods, highlighting advantages of hybridizing different
+approaches and increasing transparency in assessments.
 
 ### Land
 
