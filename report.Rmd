@@ -279,15 +279,15 @@ treemap(data, index=c("group"), vSize="value", type="index",
 
 q.all <- list("IO_MRIO" = q.mrio, 
               Review = (q.rev | q.ov),
-              Land = q.land, 
+              Land = (q.land & q.mrio), 
               "Land Metrics" = q.met.land,
               ENA = q.ena, 
               Network = q.net,
               CHNS = q.chns, 
-	      "Climate Change" = q.mc, 
-               Resilience = q.res,
-	       Metric = q.met 
-	       )
+      	      "Climate Change" = (q.mc & q.mrio), 
+			  Resilience = q.res,
+			  Metric = (q.met & q.mrio)
+		  )
 
 ```
 
