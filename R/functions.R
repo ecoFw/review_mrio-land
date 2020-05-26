@@ -35,9 +35,9 @@ fix_bdf <- function(df, include.books = FALSE){
 check_data <- function(df){
     checks <- data.frame()
     if (any(grepl("BOOK", df[, "DT"]))){
-        checks["count", 1] <- nrow(df) == 3379
+        checks["count", 1] <- nrow(df) == 8165
     }else{
-        checks["count", 1] <- nrow(df) == 3202
+        checks["count", 1] <- nrow(df) == 7755
     }
     checks["years", 1] <- all(!(is.na(df[, "PY"])))
     if (all(checks[, 1])){
@@ -132,7 +132,9 @@ mk_review <- function(df = "bibliographic data frame", ql = "Named query list", 
             }
             bo[[i]] <- c("", 
                          "", 
-                         sc[[i]], 
+                         sc[[i]],
+                         "",
+                         length(refs),
                          "",
                          paste("-", refs)
                              )

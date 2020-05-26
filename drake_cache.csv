@@ -1,12 +1,13 @@
 hash,type,name
-3063094ff1d1611f,target,ab.bdf
-a3efe4b5455f946e,import,check_data
+c7df3ec369638b6c,target,ab.bdf
+b071801a4a5a02e0,import,check_data
 9ef090909cd34708,target,check.books
 9ef090909cd34708,target,checks
+add53ced6ee9cfa2,target,compile.bib
 820cf6288efdb8a6,import,fix_bdf
-5cb3279aa6591979,target,io.bdf
-2dab57802aa2d40f,target,io.raw
+3a151fdc5c0cc7c5,target,io.bdf
+b8441042e948e1f5,target,io.raw
 d1ab99cba1c328de,import,rmarkdown::render
-69085b83e3ddf12a,import,file report.Rmd
-120c2dce3d93dc59,target,file report.md
+cd5135880d0a2337,import,file report.Rmd
+09451bc5d07ff3ab,target,file report.md
 9f01029dc09f25fc,target,report
