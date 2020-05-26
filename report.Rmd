@@ -277,10 +277,17 @@ treemap(data, index=c("group"), vSize="value", type="index",
 
 ```{r query-list, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-q.all <- list("IO_MRIO" = q.mrio, Land = q.land, 
-	          "Climate Change" = q.mc, Resilience = q.res,
-	          Metric = q.met, Network = q.net, ENA = q.ena, CHNS = q.chns, 
-	          "Land Metrics" = q.met.land, Review = (q.rev | q.ov))
+q.all <- list("IO_MRIO" = q.mrio, 
+              Review = (q.rev | q.ov),
+              Land = q.land, 
+              "Land Metrics" = q.met.land,
+              ENA = q.ena, 
+              Network = q.net,
+              CHNS = q.chns, 
+	      "Climate Change" = q.mc, 
+               Resilience = q.res,
+	       Metric = q.met 
+	       )
 
 ```
 
