@@ -94,7 +94,15 @@ q.land <- grepl("^LAND", io.bdf[, "DE"]) |
     grepl(" LAND", io.bdf[, "TI"]) 
 
 ```
+## keyword+title+abstract: forest
 
+```{r mrio-land, echo=TRUE, message=FALSE, warning=FALSE}
+
+q.for <- grepl("FOREST", io.bdf[, "DE"]) | 
+	      grepl("FOREST", io.bdf[, "TI"]) | 
+		  grepl("FOREST", io.bdf[, "AB"]) 
+		 
+```
 ## keyword+title: mrio & network/ena
 
 ```{r mrio-ena, echo=TRUE, message=FALSE, warning=FALSE}
@@ -280,6 +288,7 @@ treemap(data, index=c("group"), vSize="value", type="index",
 q.all <- list("IO_MRIO" = q.mrio, 
               Review = (q.rev | q.ov),
               Land = (q.land & q.mrio), 
+              Forest = (q.for), 
               "Land Metrics" = q.met.land,
               ENA = q.ena, 
               Network = q.net,
