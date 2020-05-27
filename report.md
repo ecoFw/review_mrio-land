@@ -73,6 +73,13 @@ keyword+title: mrio & landscape
         grepl(" LAND", io.bdf[, "DE"]) | 
         grepl(" LAND", io.bdf[, "TI"]) 
 
+keyword+title+abstract: forest
+------------------------------
+
+    q.for <- grepl("FOREST", io.bdf[, "DE"]) | 
+              grepl("FOREST", io.bdf[, "TI"]) |
+             grepl("FOREST", io.bdf[, "AB"])
+
 keyword+title: mrio & network/ena
 ---------------------------------
 
@@ -520,6 +527,16 @@ Literature Review: Methods and Background
 <td align="right">0.81</td>
 </tr>
 <tr class="even">
+<td align="left">Forest</td>
+<td align="right">61</td>
+<td align="right">0.79</td>
+</tr>
+<tr class="odd">
+<td align="left">Forest Network</td>
+<td align="right">3</td>
+<td align="right">0.04</td>
+</tr>
+<tr class="even">
 <td align="left">Land Metrics</td>
 <td align="right">4</td>
 <td align="right">0.05</td>
@@ -565,9 +582,9 @@ Literature Review: Methods and Background
     export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
 
     ##  [1] "IO_MRIO.csv"        "Review.csv"         "Land.csv"          
-    ##  [4] "Land_Metrics.csv"   "ENA.csv"            "Network.csv"       
-    ##  [7] "CHNS.csv"           "Climate_Change.csv" "Resilience.csv"    
-    ## [10] "Metric.csv"        
+    ##  [4] "Forest.csv"         "Forest_Network.csv" "Land_Metrics.csv"  
+    ##  [7] "ENA.csv"            "Network.csv"        "CHNS.csv"          
+    ## [10] "Climate_Change.csv" "Resilience.csv"     "Metric.csv"        
     ## [1] "Successfully written to data/wos-mrio_query"
 
     mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
