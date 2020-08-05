@@ -22,6 +22,31 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 # Overview
 
+## Wed Aug 5 09:28:45 EDT 2020
+
+There has been a substantial amount of work examining embodied
+environmental trade via economic and materials trade; however, such
+studies focus on integrated metrics that examine inputs and outputs,
+i.e. "footprint" and "telecoupling" accounting, and not the structure
+of trade network connections. This is possibly both a results of the
+origin of the field stemming from economic theory, as well as, data
+limitations. The former constraint of theoretical lineage has started
+to shift as inter- and trans-disciplinary work has bridged the fields
+of economics, ecology and network theory, presenting new opportunities
+for synthesis. Also, significant data limitations have been removed as
+databases of trade have become available and new models of trade flows
+have been constructed from the combination of these data across
+temporal, spatial and economic scales. Here, we review the extensive
+literature of multi-regional input-output model analysis and examine
+the studies that have applied network analysis and theory to the
+structure of trade networks. Focusing on environmentally extended
+MRIO, we then examine the areas in which significant application of
+network analysis is likely to produce interesting and useful insights
+for enviromental sustainability and resilience.
+
+
+## Previous Summary
+
 Summary: The goal of this review is to identify the needs for network
 analysis of landscape (forests, agriculture, aquatic, built) embodied
 in trade to assess the resilience of global human-natural systems to
