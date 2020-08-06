@@ -6,6 +6,14 @@
 #'
 #' @return Fixed dataframe
 
+mk_refs <- function(){
+    if (!("refs.bib" %in% dir())){
+        compile.bib = capture.output(system("cat ./data/wos_io/savedrecs* > ./refs.bib"), type = "message")
+        print(compile.bib)
+    }
+    print("Compiled refs.bib")
+}
+
 fix_bdf <- function(df, include.books = FALSE){
     # missing early access year field years
     ead <- strsplit(df[, "early.access.date"], split = " ")

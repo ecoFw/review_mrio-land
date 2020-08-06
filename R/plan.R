@@ -1,6 +1,6 @@
 plan <- drake_plan(
 ### Load data
-    compile.bib = capture.output(system("cat data/wos_io/savedrecs* > ./refs.bib"), type = "message"),
+    mk_refs(),
     io.raw = convert2df("refs.bib", dbsource = "wos", format = "bibtex"),
 ### Data wrangling
     io.bdf = fix_bdf(io.raw, include.books = FALSE),
