@@ -1,6 +1,23 @@
 Web of Science Search
 =====================
 
+x0 1-500
+x1 501-1000
+x2 1001-1500
+x3 1501-2000
+x4 2001-2500
+x5 2501-3000
+x6 3001-3500
+x7 3501-4000
+x8 4001-4500
+x9 4501-5000
+x10 5001-5500
+x11 5501-6000
+x12 6001-6500
+x13 6501-7000
+x14 7001-7500
+15 7501-7803
+
 TS= ("land-system* science" OR 
 "land system* science" OR
 telecoupl* OR 
@@ -17,6 +34,13 @@ teleconnection OR
 "economic input output" OR 
 "ecological economics")
 Timespan: All years. 
+
+
+Thu 06 Aug 2020 03:15:03 PM EDT
+You searched for: TOPIC: ("land-system science") OR TOPIC: (telecoupl)
+OR TOPIC: (teleconnection) OR TOPIC: ("input-output analysis") OR
+TOPIC: ("input output analysis")
+
 
 
 Fri 22 May 2020 02:57:31 PM EDT
