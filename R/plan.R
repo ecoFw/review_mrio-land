@@ -15,7 +15,6 @@ plan <- drake_plan(
 ### Generate the manuscript
     report = rmarkdown::render(
                             knitr_in("report.Rmd"),
-                            output_file = file_out("report.md"),
-                            quiet = TRUE
+                            quiet = FALSE
                         )
 )

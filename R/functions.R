@@ -7,11 +7,19 @@
 #' @return Fixed dataframe
 
 mk_refs <- function(){
+    print(getwd())
     if (!("refs.bib" %in% dir())){
-        compile.bib = capture.output(system("cat ./data/wos_io/savedrecs* > ./refs.bib"), type = "message")
-        print(compile.bib)
+        compile.bib = capture.output(
+            system("cat ./data/wos_io/savedrecs* > ./refs.bib"), 
+            type = "message")
+        system("sed -i.bak '/Early Access Date/d' ./refs.bib")
+        if (length(compile.bib) != 0){
+            print(compile.bib)
+        }
+        print("Compiled refs.bib")
+    }else{
+        print("refs.bib exists")
     }
-    print("Compiled refs.bib")
 }
 
 fix_bdf <- function(df, include.books = FALSE){

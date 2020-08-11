@@ -6,13 +6,6 @@ output: md_document
 fig_caption: yes
 bibliography: refs.bib
 always_allow_html: yes
-
-# Latex settings
-header-includes:
-  - \usepackage{endfloat}
-  - \usepackage{setspace}\doublespacing
-  - \usepackage{lineno}
-  - \linenumbers
 ---
 
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
