@@ -88,11 +88,8 @@ rm.spch <- function(x){
 #' @return NULL
 
 export_query <- function(df = "dataframe", ql = "query list", 
-                         dir = "output directory", overwrite = FALSE){
-    
-
+                         dir = "output directory", overwrite = TRUE){
     names(ql) <- gsub(" ", "_", names(ql))
-
     for (i in seq_along(ql)){
         if (sum(ql[[i]]) == 0){
             print(paste(names(ql)[i], "had length zero and was removed."))
@@ -130,7 +127,7 @@ export_query <- function(df = "dataframe", ql = "query list",
 #'
 #' 
 
-mk_review <- function(df = "bibliographic data frame", ql = "Named query list", file = "Output file path", overwrite = FALSE, verbose = FALSE, sort.by.year = TRUE){
+mk_review <- function(df = "bibliographic data frame", ql = "Named query list", file = "Output file path", overwrite = TRUE, verbose = FALSE, sort.by.year = TRUE){
 
     if (file.exists(file) & overwrite == FALSE){
         warning(paste(file, "exists. Set overwrite = TRUE to overwrite."))
@@ -161,3 +158,65 @@ mk_review <- function(df = "bibliographic data frame", ql = "Named query list", 
     }
     if (verbose){return(out)}
 }
+
+mk_q <- function(io.bdf){
+   q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) | 
+       grepl("INPUT-OUTPUT", io.bdf[, "TI"]) | 
+       grepl("INPUT OUTPUT", io.bdf[, "DE"]) | 
+       grepl("INPUT OUTPUT", io.bdf[, "TI"]) 
+   q.rev <- grepl("REVIEW", io.bdf[, "DT"]) | 
+       grepl("REVIEW", io.bdf[, "DE"]) | 
+       grepl("REVIEW", io.bdf[, "TI"]) 
+   q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
+       grepl("OVERVIEW", io.bdf[, "DE"]) | 
+       grepl("OVERVIEW", io.bdf[, "TI"]) 
+   q.land <- grepl("^LAND", io.bdf[, "DE"]) | 
+       grepl("^LAND", io.bdf[, "TI"]) | 
+       grepl(" LAND", io.bdf[, "DE"]) | 
+       grepl(" LAND", io.bdf[, "TI"]) 
+   q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) | 
+       grepl("INPUT-OUTPUT", io.bdf[, "TI"]) | 
+       grepl("INPUT OUTPUT", io.bdf[, "DE"]) | 
+       grepl("INPUT OUTPUT", io.bdf[, "TI"]) 
+   q.for <- grepl("FOREST", io.bdf[, "DE"]) | 
+   	      grepl("FOREST", io.bdf[, "TI"]) |
+   		 grepl("FOREST", io.bdf[, "AB"])
+   q.net <- (grepl("NETWORK ANALYS", io.bdf[, "DE"]) | 
+       grepl("NETWORK ANALYS", io.bdf[, "TI"])) & 
+   	!(grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
+       grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]))
+   q.ena <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
+       grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]) &
+       !(q.net)
+   q.mc <- grepl("^CLIMATE", io.bdf[, "TI"]) | 
+       grepl("^CLIMATE", io.bdf[, "DE"]) | 
+       grepl(" CLIMATE", io.bdf[, "TI"]) | 
+       grepl(" CLIMATE", io.bdf[, "DE"]) 
+   q.md <- grepl("^DISTURB", io.bdf[, "TI"]) | 
+       grepl("^DISTURB", io.bdf[, "DE"]) | 
+       grepl(" DISTURB", io.bdf[, "TI"]) | 
+       grepl(" DISTURB", io.bdf[, "DE"]) 
+   q.met.land <- q.met & q.land
+   q.chns <- grepl("HUMAN-NATURAL", io.bdf[, "TI"]) | 
+       grepl("HUMAN-NATURAL", io.bdf[, "DE"]) |
+       grepl("HUMAN-NATURAL", io.bdf[, "AB"]) |
+       grepl("HUMAN NATURAL", io.bdf[, "TI"]) | 
+       grepl("HUMAN NATURAL", io.bdf[, "DE"]) |
+       grepl("HUMAN NATURAL", io.bdf[, "AB"]) 
+   q.all <- list("IO_MRIO" = q.mrio, 
+                 Review = (q.rev | q.ov),
+                 Land = (q.land & q.mrio), 
+                 Forest = (q.for & q.mrio), 
+                 "Forest Network" = (q.for & q.mrio & (q.ena | q.net)), 
+                 "Land Metrics" = q.met.land,
+                 ENA = q.ena, 
+                 Network = q.net,
+                 CHNS = q.chns, 
+         	      "Climate Change" = (q.mc & q.mrio), 
+   			  Resilience = q.res,
+   			  Metric = (q.met & q.mrio)
+   		  )
+   return(q.all)
+}
+
+

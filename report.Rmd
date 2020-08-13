@@ -84,7 +84,7 @@ climate change.
 - What work has addressed resilience and stability?
 - What ENA metrics have been or could be applied?
 
-```{r loadd-data, echo=TRUE, message=FALSE, warning=FALSE}
+```{r loadd-data, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 loadd(io.bdf)
 
@@ -93,7 +93,7 @@ loadd(io.bdf)
 
 ## keyword+title: io/mrio
 
-```{r mrio-io, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-io, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) | 
     grepl("INPUT-OUTPUT", io.bdf[, "TI"]) | 
@@ -104,7 +104,7 @@ q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) |
 
 ## keyword+title: mrio & landscape
 
-```{r mrio-land, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-land, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.land <- grepl("^LAND", io.bdf[, "DE"]) | 
     grepl("^LAND", io.bdf[, "TI"]) | 
@@ -114,15 +114,16 @@ q.land <- grepl("^LAND", io.bdf[, "DE"]) |
 ```
 ## keyword+title+abstract: forest
 
-```{r mrio-for, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-for, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.for <- grepl("FOREST", io.bdf[, "DE"]) | 
 	      grepl("FOREST", io.bdf[, "TI"]) |
 		 grepl("FOREST", io.bdf[, "AB"])
+
 ```
 ## keyword+title: mrio & network/ena
 
-```{r mrio-ena, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-ena, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.net <- (grepl("NETWORK ANALYS", io.bdf[, "DE"]) | 
     grepl("NETWORK ANALYS", io.bdf[, "TI"])) & 
@@ -136,7 +137,7 @@ q.ena <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) |
 
 ## keyword+title: resilience
 
-```{r mrio-res, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-res, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.res <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
     grepl("^RESILIEN", io.bdf[, "DE"]) | 
@@ -153,7 +154,7 @@ q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) |
 
 ## keyword+title: disturbance(climate change, other)
 
-```{r mrio-dist, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-dist, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.mc <- grepl("^CLIMATE", io.bdf[, "TI"]) | 
     grepl("^CLIMATE", io.bdf[, "DE"]) | 
@@ -168,7 +169,7 @@ q.md <- grepl("^DISTURB", io.bdf[, "TI"]) |
 
 ## keyword+title: coupled-human natural systems
 
-```{r mrio-chns, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-chns, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.chns <- grepl("HUMAN-NATURAL", io.bdf[, "TI"]) | 
     grepl("HUMAN-NATURAL", io.bdf[, "DE"]) |
@@ -180,7 +181,7 @@ q.chns <- grepl("HUMAN-NATURAL", io.bdf[, "TI"]) |
 ```
 ## keyword+title: ena & resilience+stability & metrics
 
-```{r mrio-met, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-met, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.met <- grepl(" METRIC", io.bdf[, "TI"]) | 
     grepl(" METRIC", io.bdf[, "DE"]) |
@@ -196,7 +197,7 @@ q.met.land <- q.met & q.land
 
 ## type: review 
 
-```{r mrio-rev, echo=TRUE, message=FALSE, warning=FALSE}
+```{r mrio-rev, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 q.rev <- grepl("REVIEW", io.bdf[, "DT"]) | 
     grepl("REVIEW", io.bdf[, "DE"]) | 
@@ -211,7 +212,7 @@ q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
 
 ## QUERY: IO/MRIO
 
-```{r papers-iomrio, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-iomrio, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 head(io.bdf[q.mrio, c("TI")])
 
@@ -219,7 +220,7 @@ head(io.bdf[q.mrio, c("TI")])
 
 ## QUERY: Reviews/Overviews
 
-```{r papers-rev, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-rev, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.rev | q.ov, c("TI")]
 
@@ -227,13 +228,13 @@ io.bdf[q.rev | q.ov, c("TI")]
 
 ## QUERY: ENA/Network
 
-```{r papers-ena, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-ena, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.ena | q.ov, c("TI")]
 
 ```
 
-```{r papers-net, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-net, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.net | q.ov, c("TI")]
 
@@ -241,13 +242,13 @@ io.bdf[q.net | q.ov, c("TI")]
 
 ## QUERY: Metrics
 
-```{r papers-met, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-met, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.met, c("TI")]
 
 ```
 
-```{r papers-met-land, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-met-land, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.met & q.land, c("TI")]
 
@@ -256,7 +257,7 @@ io.bdf[q.met & q.land, c("TI")]
 
 ## QUERY: Resilience
 
-```{r papers-res, echo=TRUE, message=FALSE, warning=FALSE}
+```{r papers-res, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
 io.bdf[q.res, c("TI")]
 
@@ -264,7 +265,7 @@ io.bdf[q.res, c("TI")]
 
 # Literature Review: Methods and Background
 
-```{r key-words, echo = TRUE, message = FALSE, warning = FALSE}
+```{r key-words, eval = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
 
 kw <- gsub(";", "", unlist(strsplit(io.bdf[q.land, "DE"], split = "; ")))
 kw <- sapply(kw, rm.spch)
@@ -273,7 +274,7 @@ kw.tab <- table(kw)
 
 ```
 
-```{R art-year, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
+```{R art-year, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
 
 plot(melt(table(io.bdf[, "PY"])), 
 	type = "l", xlab = "", ylab = "Articles")
@@ -281,7 +282,7 @@ plot(melt(table(io.bdf[, "PY"])),
 ```
 
 
-```{R kw-treemap, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
+```{R kw-treemap, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
 
 data <- melt(kw.tab)
 data <- data[order(data[, "value"], decreasing = TRUE), ][1:25, ]
@@ -300,7 +301,7 @@ treemap(data, index=c("group"), vSize="value", type="index",
 
 ```
 
-```{r query-list, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r query-list, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 q.all <- list("IO_MRIO" = q.mrio, 
               Review = (q.rev | q.ov),
@@ -318,7 +319,7 @@ q.all <- list("IO_MRIO" = q.mrio,
 
 ```
 
-```{r topic-table, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+```{r topic-table, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
 
 count <- c(unlist(lapply(q.all, sum)), nrow(io.bdf))
 pct <- count / nrow(io.bdf) * 100
@@ -329,7 +330,7 @@ knitr::kable(q.df, caption = "", booktabs = TRUE, row.names = FALSE)
 ```
 
 
-```{r export-query, echo = TRUE, message = FALSE, warning = FALSE}
+```{r export-query, eval = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
 
 export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
 mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
