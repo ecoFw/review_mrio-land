@@ -24,8 +24,8 @@ mk_refs <- function(){
 
 fix_bdf <- function(df, include.books = FALSE){
     # missing early access year field years
-    ead <- strsplit(df[, "early.access.date"], split = " ")
-    df[is.na(df[, "PY"]), "PY"] <- do.call(rbind, ead)[is.na(df[, "PY"]), 2]
+    # ead <- strsplit(df[, "early.access.date"], split = " ")
+    # df[is.na(df[, "PY"]), "PY"] <- do.call(rbind, ead)[is.na(df[, "PY"]), 2]
     ## limit to articles
     df <- df[!(grepl("PROCEEDINGS", df[, "DT"])), ]
     if (include.books){
@@ -196,6 +196,24 @@ mk_q <- function(io.bdf){
        grepl("^DISTURB", io.bdf[, "DE"]) | 
        grepl(" DISTURB", io.bdf[, "TI"]) | 
        grepl(" DISTURB", io.bdf[, "DE"]) 
+q.res <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
+    grepl("^RESILIEN", io.bdf[, "DE"]) | 
+    grepl(" RESILIEN", io.bdf[, "TI"]) | 
+    grepl(" RESILIEN", io.bdf[, "DE"]) 
+q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
+    grepl("^RESILIEN", io.bdf[, "DE"]) | 
+    grepl(" RESILIEN", io.bdf[, "TI"]) | 
+    grepl(" RESILIEN", io.bdf[, "DE"]) | 
+    grepl("^RESILIEN", io.bdf[, "AB"]) | 
+    grepl(" RESILIEN", io.bdf[, "AB"]) 
+   q.met <- grepl(" METRIC", io.bdf[, "TI"]) | 
+       grepl(" METRIC", io.bdf[, "DE"]) |
+       grepl(" METRIC", io.bdf[, "AB"]) |
+       grepl("^METRIC", io.bdf[, "TI"]) | 
+       grepl("^METRIC", io.bdf[, "DE"]) |
+       grepl("^METRIC", io.bdf[, "AB"]) & 
+       q.net &
+       q.res
    q.met.land <- q.met & q.land
    q.chns <- grepl("HUMAN-NATURAL", io.bdf[, "TI"]) | 
        grepl("HUMAN-NATURAL", io.bdf[, "DE"]) |
