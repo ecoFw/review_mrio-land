@@ -196,16 +196,16 @@ mk_q <- function(io.bdf){
        grepl("^DISTURB", io.bdf[, "DE"]) | 
        grepl(" DISTURB", io.bdf[, "TI"]) | 
        grepl(" DISTURB", io.bdf[, "DE"]) 
-q.res <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
-    grepl("^RESILIEN", io.bdf[, "DE"]) | 
-    grepl(" RESILIEN", io.bdf[, "TI"]) | 
-    grepl(" RESILIEN", io.bdf[, "DE"]) 
-q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
-    grepl("^RESILIEN", io.bdf[, "DE"]) | 
-    grepl(" RESILIEN", io.bdf[, "TI"]) | 
-    grepl(" RESILIEN", io.bdf[, "DE"]) | 
-    grepl("^RESILIEN", io.bdf[, "AB"]) | 
-    grepl(" RESILIEN", io.bdf[, "AB"]) 
+   q.res <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
+       grepl("^RESILIEN", io.bdf[, "DE"]) | 
+       grepl(" RESILIEN", io.bdf[, "TI"]) | 
+       grepl(" RESILIEN", io.bdf[, "DE"]) 
+   q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
+       grepl("^RESILIEN", io.bdf[, "DE"]) | 
+       grepl(" RESILIEN", io.bdf[, "TI"]) | 
+       grepl(" RESILIEN", io.bdf[, "DE"]) | 
+       grepl("^RESILIEN", io.bdf[, "AB"]) | 
+       grepl(" RESILIEN", io.bdf[, "AB"]) 
    q.met <- grepl(" METRIC", io.bdf[, "TI"]) | 
        grepl(" METRIC", io.bdf[, "DE"]) |
        grepl(" METRIC", io.bdf[, "AB"]) |
