@@ -37,6 +37,34 @@ MRIO, we then examine the areas in which significant application of
 network analysis is likely to produce interesting and useful insights
 for enviromental sustainability and resilience.
 
+After compiling a bibliograhic database of 7803 articles from Web of
+Science using the following search of all years from 1900-2020:
+
+TS= ("land-system* science" OR 
+"land system* science" OR
+telecoupl* OR 
+teleconnection OR
+"input-output analysis" OR 
+"input output analysis" OR 
+"multi-regional input-output" OR 
+"multiregional input-output" OR 
+"multi-regional input output" OR 
+"multiregional input output" OR 
+"multi regional input-output" OR 
+"multi regional input output" OR 
+"economic input-output" OR
+"economic input output" OR 
+"ecological economics")
+
+
+A search of all titles and keywords in the database for the term
+"network analys" excluding the term "eological network analys"
+yielded 40 published articles (not invluding books). The search for
+the more specific "ecological network analys" yielded 29 studies. 
+
+
+
+
 
 ## Previous Summary
 
@@ -84,272 +112,47 @@ climate change.
 - What work has addressed resilience and stability?
 - What ENA metrics have been or could be applied?
 
-```{r loadd-data, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
 
-loadd(io.bdf)
+## Constructing the Biblio Database
+
+- The Web of Science database was accessed on 11 Aug 2020
+- Bib entries with "Topic" matching the following search terms were
+  downloaded: TS= ("land-system* science" OR "land system* science" OR
+  telecoupl* OR teleconnection OR "input-output analysis" OR "input
+  output analysis" OR "multi-regional input-output" OR "multiregional
+  input-output" OR "multi-regional input output" OR "multiregional
+  input output" OR "multi regional input-output" OR "multi regional
+  input output" OR "economic input-output" OR "economic input output"
+  OR "ecological economics")
+- Entries were further parsed in R using the Bibliometrix package
+  using the following workflow (see R/functions.R and R/packages.R) :
+
+
+```{r drake-plan, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+plan <- drake_plan(
+### Load data
+    make.refs = mk_refs(),
+    io.raw = convert2df("refs.bib", dbsource = "wos", format = "bibtex"),
+### Data wrangling
+    io.bdf = fix_bdf(io.raw, include.books = FALSE),
+    ab.bdf = fix_bdf(io.raw, include.books = TRUE),
+### Data checks
+    # checks = check_data(io.bdf),
+    # check.books = check_data(ab.bdf),
+### Analyses
+    q.all = mk_q(io.bdf),
+    export_query(io.bdf, q.all, dir = "data/wos-mrio_query"),
+### Export review spreadsheet
+    mk_review(io.bdf, q.all[-1], file = "results/wos_review.md")
+### Analytical Checks
+### Generate the manuscript
+)
+
 
 ```
 
 
-## keyword+title: io/mrio
-
-```{r mrio-io, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.mrio <- grepl("INPUT-OUTPUT", io.bdf[, "DE"]) | 
-    grepl("INPUT-OUTPUT", io.bdf[, "TI"]) | 
-    grepl("INPUT OUTPUT", io.bdf[, "DE"]) | 
-    grepl("INPUT OUTPUT", io.bdf[, "TI"]) 
-
-```
-
-## keyword+title: mrio & landscape
-
-```{r mrio-land, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.land <- grepl("^LAND", io.bdf[, "DE"]) | 
-    grepl("^LAND", io.bdf[, "TI"]) | 
-    grepl(" LAND", io.bdf[, "DE"]) | 
-    grepl(" LAND", io.bdf[, "TI"]) 
-
-```
-## keyword+title+abstract: forest
-
-```{r mrio-for, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.for <- grepl("FOREST", io.bdf[, "DE"]) | 
-	      grepl("FOREST", io.bdf[, "TI"]) |
-		 grepl("FOREST", io.bdf[, "AB"])
-
-```
-## keyword+title: mrio & network/ena
-
-```{r mrio-ena, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.net <- (grepl("NETWORK ANALYS", io.bdf[, "DE"]) | 
-    grepl("NETWORK ANALYS", io.bdf[, "TI"])) & 
-	!(grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
-    grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]))
-q.ena <- grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "DE"]) | 
-    grepl("ECOLOGICAL NETWORK ANALYS", io.bdf[, "TI"]) &
-    !(q.net)
-
-```
-
-## keyword+title: resilience
-
-```{r mrio-res, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.res <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
-    grepl("^RESILIEN", io.bdf[, "DE"]) | 
-    grepl(" RESILIEN", io.bdf[, "TI"]) | 
-    grepl(" RESILIEN", io.bdf[, "DE"]) 
-q.res.abs <- grepl("^RESILIEN", io.bdf[, "TI"]) | 
-    grepl("^RESILIEN", io.bdf[, "DE"]) | 
-    grepl(" RESILIEN", io.bdf[, "TI"]) | 
-    grepl(" RESILIEN", io.bdf[, "DE"]) | 
-    grepl("^RESILIEN", io.bdf[, "AB"]) | 
-    grepl(" RESILIEN", io.bdf[, "AB"]) 
-
-```
-
-## keyword+title: disturbance(climate change, other)
-
-```{r mrio-dist, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.mc <- grepl("^CLIMATE", io.bdf[, "TI"]) | 
-    grepl("^CLIMATE", io.bdf[, "DE"]) | 
-    grepl(" CLIMATE", io.bdf[, "TI"]) | 
-    grepl(" CLIMATE", io.bdf[, "DE"]) 
-q.md <- grepl("^DISTURB", io.bdf[, "TI"]) | 
-    grepl("^DISTURB", io.bdf[, "DE"]) | 
-    grepl(" DISTURB", io.bdf[, "TI"]) | 
-    grepl(" DISTURB", io.bdf[, "DE"]) 
-
-```
-
-## keyword+title: coupled-human natural systems
-
-```{r mrio-chns, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.chns <- grepl("HUMAN-NATURAL", io.bdf[, "TI"]) | 
-    grepl("HUMAN-NATURAL", io.bdf[, "DE"]) |
-    grepl("HUMAN-NATURAL", io.bdf[, "AB"]) |
-    grepl("HUMAN NATURAL", io.bdf[, "TI"]) | 
-    grepl("HUMAN NATURAL", io.bdf[, "DE"]) |
-    grepl("HUMAN NATURAL", io.bdf[, "AB"]) 
-
-```
-## keyword+title: ena & resilience+stability & metrics
-
-```{r mrio-met, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.met <- grepl(" METRIC", io.bdf[, "TI"]) | 
-    grepl(" METRIC", io.bdf[, "DE"]) |
-    grepl(" METRIC", io.bdf[, "AB"]) |
-    grepl("^METRIC", io.bdf[, "TI"]) | 
-    grepl("^METRIC", io.bdf[, "DE"]) |
-    grepl("^METRIC", io.bdf[, "AB"]) & 
-    q.net &
-    q.res
-q.met.land <- q.met & q.land
-
-```
-
-## type: review 
-
-```{r mrio-rev, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-q.rev <- grepl("REVIEW", io.bdf[, "DT"]) | 
-    grepl("REVIEW", io.bdf[, "DE"]) | 
-    grepl("REVIEW", io.bdf[, "TI"]) 
-q.ov <- grepl("OVERVIEW", io.bdf[, "DT"]) |
-    grepl("OVERVIEW", io.bdf[, "DE"]) | 
-    grepl("OVERVIEW", io.bdf[, "TI"]) 
-
-```
-
-# Papers
-
-## QUERY: IO/MRIO
-
-```{r papers-iomrio, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-head(io.bdf[q.mrio, c("TI")])
-
-```
-
-## QUERY: Reviews/Overviews
-
-```{r papers-rev, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.rev | q.ov, c("TI")]
-
-```
-
-## QUERY: ENA/Network
-
-```{r papers-ena, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.ena | q.ov, c("TI")]
-
-```
-
-```{r papers-net, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.net | q.ov, c("TI")]
-
-```
-
-## QUERY: Metrics
-
-```{r papers-met, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.met, c("TI")]
-
-```
-
-```{r papers-met-land, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.met & q.land, c("TI")]
-
-```
-
-
-## QUERY: Resilience
-
-```{r papers-res, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-
-io.bdf[q.res, c("TI")]
-
-```
-
-# Literature Review: Methods and Background
-
-```{r key-words, eval = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
-
-kw <- gsub(";", "", unlist(strsplit(io.bdf[q.land, "DE"], split = "; ")))
-kw <- sapply(kw, rm.spch)
-kw <- unlist(strsplit(kw, " "))
-kw.tab <- table(kw)
-
-```
-
-```{R art-year, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
-
-plot(melt(table(io.bdf[, "PY"])), 
-	type = "l", xlab = "", ylab = "Articles")
-
-```
-
-
-```{R kw-treemap, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, fig.cap=""}
-
-data <- melt(kw.tab)
-data <- data[order(data[, "value"], decreasing = TRUE), ][1:25, ]
-colnames(data) <- c("group", "value")
-treemap(data, index=c("group"), vSize="value", type="index",
-        fontsize.labels=c(15),
-        fontcolor.labels=c("white"),
-        fontface.labels=c(2),
-        bg.labels=c("transparent"),
-        align.labels=list(
-            c("center", "center")
-        ),
-        overlap.labels=0.5,
-        inflate.labels=F,
-	)
-
-```
-
-```{r query-list, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-q.all <- list("IO_MRIO" = q.mrio, 
-              Review = (q.rev | q.ov),
-              Land = (q.land & q.mrio), 
-              Forest = (q.for & q.mrio), 
-              "Forest Network" = (q.for & q.mrio & (q.ena | q.net)), 
-              "Land Metrics" = q.met.land,
-              ENA = q.ena, 
-              Network = q.net,
-              CHNS = q.chns, 
-      	      "Climate Change" = (q.mc & q.mrio), 
-			  Resilience = q.res,
-			  Metric = (q.met & q.mrio)
-		  )
-
-```
-
-```{r topic-table, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
-
-count <- c(unlist(lapply(q.all, sum)), nrow(io.bdf))
-pct <- count / nrow(io.bdf) * 100
-pct <- round(pct, 2)
-q.df <- data.frame(topic = c(names(q.all), "Total"), count = count, percent = pct)
-knitr::kable(q.df, caption = "", booktabs = TRUE, row.names = FALSE)
-
-```
-
-
-```{r export-query, eval = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
-
-export_query(io.bdf, q.all, dir = "data/wos-mrio_query", overwrite = TRUE)
-mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
-
-```
-
-<!-- q.all <- list("IO_MRIO" = q.mrio, Land = q.land, Resilience = q.res, -->
-<!-- 	          "Climate Change" = q.mc,  -->
-<!-- 	          Metric = q.met, Network = q.net, ENA = q.ena, CHNS = q.chns,  -->
-<!-- 	          "Land Metrics" = q.met.land, Review = (q.rev | q.ov)) -->
-
-
-## Searched and Reviewed "Land" Query
-
-- Searched within queried papers and found papers with MRIO, network
-  or resilience
-- Need to add telecoupling and land-system science articles
-- Recompile using a cross-referencing = LAND & MRIO | NETWORK |
-  RESILIENCE | SUSTAINABILITY
 
 
 
@@ -357,35 +160,6 @@ mk_review(io.bdf, q.all[-1], file = "results/wos_review.md", overwrite = TRUE)
 
 Processing papers compiled in results/wos_review.md
 
-## Coupled-Human-Natural Systems + MRIO
-
-- LAND-USE CHANGES IN DISTANT PLACES: IMPLEMENTATION OF A TELECOUPLED
-  AGENT-BASED MODEL | DOU Y, 2020, JASSS | ISI000510855400011
-- ECO-CERTIFICATION PROTOCOLS AS MECHANISMS TO FOSTER SUSTAINABLE
-  ENVIRONMENTAL PRACTICES IN TELECOUPLED SYSTEMS | BICUDO DA SILVA RF,
-  2019, FOREST POLICY ECON | ISI000469866900006
-- THE TELECOUPLING GEOAPP: A WEB-GIS APPLICATION TO SYSTEMATICALLY
-  ANALYZE TELECOUPLINGS AND SUSTAINABLE DEVELOPMENT | MCCORD P, 2018,
-  APPL GEOGR | ISI000436053300003
-- THE SINO-BRAZILIAN TELECOUPLED SOYBEAN SYSTEM AND CASCADING EFFECTS
-  FOR THE EXPORTING COUNTRY | BICUDO DA SILVA RF, 2017, LAND |
-  ISI000411997300009
-- EVEN AT THE UTTERMOST ENDS OF THE EARTH: HOW SEABIRDS TELECOUPLE THE
-  BEAGLE CHANNEL WITH REGIONAL AND GLOBAL PROCESSES THAT AFFECT
-  ENVIRONMENTAL CONSERVATION AND SOCIAL-ECOLOGICAL SUSTAINABILITY |
-  RAYA REY AN, 2017, ECOL SOC | ISI000419351000035
-- TELECOUPLING TOOLBOX: SPATIALLY EXPLICIT TOOLS FOR STUDYING
-  TELECOUPLED HUMAN AND NATURAL SYSTEMS | TONINI F, 2017, ECOL SOC |
-  ISI000419351000022
-- EVOLVING HUMAN LANDSCAPES: A VIRTUAL LABORATORY APPROACH | MAGLIOCCA
-  NR, 2016, J LAND USE SCI | ISI000399047700003
-- ENVIRONMENTAL SUSTAINABILITY AS THE FIRST PRINCIPLE OF DISTRIBUTIVE
-  JUSTICE: TOWARDS AN ECOLOGICAL COMMUNITARIAN NORMATIVE FOUNDATION
-  FOR ECOLOGICAL ECONOMICS | PELLETIER N, 2010, ECOL ECON |
-  ISI000280656900001
-
-
-- SYSTEMIC RISK IN THE GLOBAL WATER INPUT-OUTPUT NETWORK | DISTEFANO T, 2018, WATER RESOUR ECON | ISI000440380800003
 
 ## What reviews are published on the topic of network analysis of landscape extended MRIO?
 

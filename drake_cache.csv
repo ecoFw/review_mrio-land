@@ -1,13 +1,16 @@
 hash,type,name
-c7df3ec369638b6c,target,ab.bdf
+4399f8dec7c2e96f,target,ab.bdf
+61818cc79a517a2f,target,check.books
 b071801a4a5a02e0,import,check_data
-9ef090909cd34708,target,check.books
-9ef090909cd34708,target,checks
-add53ced6ee9cfa2,target,compile.bib
-820cf6288efdb8a6,import,fix_bdf
-3a151fdc5c0cc7c5,target,io.bdf
-b8441042e948e1f5,target,io.raw
-d1ab99cba1c328de,import,rmarkdown::render
-b1874464c5082172,import,file report.Rmd
-7371171b6f5f3d48,target,file report.md
-9f01029dc09f25fc,target,report
+61818cc79a517a2f,target,checks
+1448f528f369ae86,target,drake_target_1
+c85d88fc56f4e042,target,drake_target_2
+f879070a32acf955,import,export_query
+d78d2cdce8ca9935,import,fix_bdf
+43f602db31b4d687,target,io.bdf
+4ce10859cfb0653d,target,io.raw
+f01b3ea6a5de3179,target,make.refs
+ddc43baa4681bf55,import,mk_q
+469ec27c1be2294a,import,mk_refs
+d11e193034dc93e7,import,mk_review
+b0e6400c889ae14c,target,q.all
