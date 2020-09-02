@@ -15,6 +15,15 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 # Overview
 
+## Wed Sep  2 18:14:52 EDT 2020
+
+New project outline
+
+1. Search WOS for MRIO
+2. Review articles for ENA and network analysis
+3. Review major themes
+4. Create a table of metrics
+
 ## Wed Aug 5 09:28:45 EDT 2020
 
 There has been a substantial amount of work examining embodied
