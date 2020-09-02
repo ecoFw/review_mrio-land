@@ -24,6 +24,54 @@ New project outline
 3. Review major themes
 4. Create a table of metrics
 
+## Wed Sep  2 13:57:50 EDT 2020
+
+*ISI:000541775700008 Liang et al. 2020*
+
+- Analyzed a global metal flow network from 2009
+- Small world network, 2.7 steps to any other department
+- 10 communities, highly correlated with economic organizations
+- Sector weights are very uneven among networks
+- A small number of flows account for 90% of embodied metal
+- 78% of trade is within regional economies
+- Data: WIOD
+- Analyses:
+   - small world nature
+   - community detection
+   - node degree
+   - node strength (weighted)
+   - centrality (weighted)
+
+*ISI:000470939600041 Zhai et al. 2019*
+
+- Analyzed urban energy metabolism in Guandong, China via ENA of IO tables
+- Used Control and Utility analyses via enaR
+- Found various patterns suggesting energy management strategies at
+the network scale
+
+ISI:000461262300005 Fang and Chen 2019
+
+- Low quality paper, possibly not peer-reviewed
+- AMI/Ascendency analysis of carbon network
+- Found a negative correlation between efficiency and redundancy
+
+ISI:000464891000048 Liu et al. 2019
+
+- Analyzed inter-provincial food-related virtual water and land network
+- Examined interconnectedness via ENA
+- This is one of a series of papers from Saige Wang and colleagues of
+embodied energy, water and land mostly using control analysis
+- See Research Gate
+
+ISI:000461410100050 Zheng et al. 2019
+
+- ENA and IO analysis of wastewater in Guangdong
+- Qunatified direct and indirect wastewater sources and impacts with
+  potential strategies for mitigation
+
+See wos_review_tags.md -> %%% You're here mark %%%
+
+
 ## Wed Aug 5 09:28:45 EDT 2020
 
 There has been a substantial amount of work examining embodied
