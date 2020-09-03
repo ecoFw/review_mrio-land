@@ -24,6 +24,20 @@ New project outline
 3. Review major themes
 4. Create a table of metrics
 
+## Thu Sep  3 16:00:54 EDT 2020
+
+*IS:I000487237100022 WANG et al. 2019 J CLEAN PROD-a*
+
+- Constructed a material flow network model of Tianjian
+- Used Control Analysis
+
+*ISI:000454376900064 WANG S, 2019, APPL ENERGY*
+
+- Used China IO sectoral table
+- Conducted control analysis
+
+
+
 ## Wed Sep  2 13:57:50 EDT 2020
 
 *ISI:000541775700008 Liang et al. 2020*
