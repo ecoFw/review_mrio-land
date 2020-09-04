@@ -24,23 +24,63 @@ New project outline
 3. Review major themes
 4. Create a table of metrics
 
+## Fri Sep  4 14:30:29 EDT 2020
+
+*WANG S, 2018, APPL ENERGY-a | ISI:000445987200037*
+
+- Constructed a energy-water network with China MRIO data
+- Conducted IO analysis
+- Conducted control analysis
+
+*YANG S, 2016, APPL ENERGY | ISI:000389785200074*
+
+- Assessed the sectoral embodied particular air pollution
+- Analyzed using IO and ENA
+- Conducted control analysis
+
+*WANG S, 2016, APPL ENERGY | ISI:000382340700062*
+
+- COnstructed an energy water nexus model for Beijing-Tianjin
+- Analyzed via IO and control analysis
+
+*ZHANG Y, 2016, J IND ECOL | ISI:000379692600009*
+
+- Constructed a China MRIO for 2002
+- Analyzed regional differences
+
+*GUO R, 2016, APPL ENERGY | ISI:000373863500010*
+
+- Water embodied in energy
+- IO/ENA
+
+*DU Q, 2018, ENVIRON SCI POLLUT RES | ISI:000441784000087*
+
+- Carbon emission flow network
+- Network analysis, including small world, average path length,
+  clustering, centrality
+
+*ZHANG Y, 2015, ENERGY POLICY-a | ISI000364246100058*
+
+- Regional energy flow network from 2002 to 2007 in China
+- ENA, including integral flow analysis
+
+
 ## Thu Sep  3 16:00:54 EDT 2020
 
-*IS:I000487237100022 WANG et al. 2019 J CLEAN PROD-a*
+*WANG et al. 2019 J CLEAN PROD-a | ISI:000487237100022*
 
 - Constructed a material flow network model of Tianjian
 - Used Control Analysis
 
-*ISI:000454376900064 WANG S, 2019, APPL ENERGY*
+*WANG S, 2019, APPL ENERGY | ISI:000454376900064*
 
 - Used China IO sectoral table
 - Conducted control analysis
 
 
-
 ## Wed Sep  2 13:57:50 EDT 2020
 
-*ISI:000541775700008 Liang et al. 2020*
+*Liang et al. 2020 | ISI:000541775700008*
 
 - Analyzed a global metal flow network from 2009
 - Small world network, 2.7 steps to any other department
@@ -56,7 +96,7 @@ New project outline
    - node strength (weighted)
    - centrality (weighted)
 
-*ISI:000470939600041 Zhai et al. 2019*
+*Zhai et al. 2019 | ISI:000470939600041*
 
 - Analyzed urban energy metabolism in Guandong, China via ENA of IO tables
 - Used Control and Utility analyses via enaR
