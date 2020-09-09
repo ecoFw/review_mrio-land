@@ -24,6 +24,34 @@ New project outline
 3. Review major themes
 4. Create a table of metrics
 
+## Wed Sep  9 16:30:03 EDT 2020
+
+*CHEN B, 2018, APPL ENERGY | ISI:000419813100008*
+
+- Energy embodied in trade
+- Found small world and scale-free (degree/strength)
+- Found 4 regional communities
+- Centrality detected USA, China and Germany
+- Also evaluated security of energy
+
+*SCHAFFER-SMITH D, 2018, ECOL SOC | ISI:000454653700019*
+
+- Analyzed global soybean trade among countries 1986-2013
+- No trade patterns by region
+- Link between soybeans and deforestation
+
+*LI Z, 2017, J CLEAN PROD-a | ISI:000407185500007*
+
+- Analyzed trade network structure among sectors for China and Japan
+- Centrality analysis showed Japan was dominated by service industries
+- China industrial structure is still developing
+
+*TSEKERIS T, 2017, J ECON INTERACT COORD | ISI:000403494800010*
+
+- Analyzed the Greek economy sector trade network
+- Used network structure analysis, entrality and clusters
+- Integrating value chains could improve efficiency
+
 ## Fri Sep  4 14:30:29 EDT 2020
 
 *WANG S, 2018, APPL ENERGY-a | ISI:000445987200037*
