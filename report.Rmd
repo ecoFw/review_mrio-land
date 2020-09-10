@@ -24,6 +24,20 @@ New project outline
 3. Review major themes
 4. Create a table of metrics
 
+## Thu Sep 10 14:47:16 EDT 2020
+
+* PRELL C, 2016, SOC SCI J | ISI:000371797100013*
+
+- Analyzes 20 years of pollution and wealth data
+- Uses Input-Output analysis
+- Found correlations between wealth and exports stronger than pollution
+
+*WANG Z, 2018, J ENVIRON MANAGE | ISI:000446147000004*
+
+- Analyzes supply chain data for Jing-Jin-Ji
+- Uses a combo of input-output, power-of-pull and structural path analysis
+- Beijing and Hebei are key
+
 ## Wed Sep  9 16:30:03 EDT 2020
 
 *CHEN B, 2018, APPL ENERGY | ISI:000419813100008*
