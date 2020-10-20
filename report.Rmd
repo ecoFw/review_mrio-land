@@ -24,6 +24,15 @@ New project outline
 3. Review major themes
 4. Create a table of metrics
 
+# Reviews Landscape EE-MRIO
+
+*WU XD, 2018, LAND USE POL | ISI:000435619900021 | :review:lemrio:world*
+*ALLEN C, 2016, ENVIRON SCI POLICY | ISI:000389089300021 | :review:sdg:*
+*HALL MR, 2015, INT J LIFE CYCLE ASSESS | ISI:000365131300005 | :review:lca:policy:*
+*SCHAFFARTZIK A, 2015, J IND ECOL | ISI:000363267800003 | :review:land:lemrio:methods:no_net_structure:world:*
+*BRUCKNER M, 2015, ECOL ECON | ISI:000355026400002 | :review:lemrio:land:telecoupling:world:monetary_bias:no_net_structure:*
+
+
 ## Network Structure + ENA Paper Review Table
 
 *SCHAUBROECK T, 2012, ECOL MODEL | ISI:000313089600015 | :lca:forest:*
