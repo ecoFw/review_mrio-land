@@ -15,6 +15,26 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 # Overview
 
+
+## Thu Jun  3 15:53:09 EDT 2021
+
+Trying out *wosr* https://vt-arc.github.io/wosr/index.html, which is
+an R API for Web of Science.
+
+Enter username and password as wos.usr and wos.pass.
+
+```{r test-wosr, echo = FALSE, results = "hide", eval = FALSE}
+
+library(wosr)
+Sys.setenv(WOS_USERNAME = wos.usr,
+           WOS_PASSWORD = wos.pass)
+sid <- auth()
+
+```
+
+
+
+
 ## Wed Sep  2 13:57:50 EDT 2020
 
 *ISI:000541775700008 Liang et al. 2020*
