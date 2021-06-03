@@ -15,7 +15,6 @@ knitr::opts_chunk$set(out.width = '100%', dpi=600)
 
 # Overview
 
-
 ## Thu Jun  3 15:53:09 EDT 2021
 
 Trying out *wosr* https://vt-arc.github.io/wosr/index.html, which is
@@ -32,13 +31,172 @@ sid <- auth()
 
 ```
 
+## Mon Sep 21 11:54:02 EDT 2020
+
+*SCHAUBROECK T, 2012, ECOL MODEL | ISI:000313089600015*
+:lca:forest:
+- Develops ENA cycle analysis for Life Cycle Assessment (LCA)
+- Applies to forest ecosystem
+
+*BORRETT SR, 2013, ECOL INDIC | ISI:000319891900022*
+:throughflow:ena:
+- Analyszes ecological networks
+- Develops throughflow metric within the ENA framework
+
+*ZHANG Y, 2014, SCI TOTAL ENVIRON | ISI000331776000069*
+:io:ena:
+- Uses a organismal analogy
+- Combined IO and ENA
+
+*CHEN S, 2015, APPL ENERGY | ISI:000347582700009*
+:energy:io:ena:china:control:
+- Compares Energy Flow, Input-Output and Ecological Network analyses
+- Analyzes Beijing energy across economic sectors
+- Focuses on control analysis
+
+*ZHANG Y, 2016, J CLEAN PROD | ISI:000384626400024*
+:urban:metabolism:ena:energy:
+- Urban metabolism analysis
+- Converted monetary into physical units of energy
+- Conducted ENA
+
+*ZHANG Y, 2017, ECOL MODEL | ISI:000399259300005*
+:energy:ena:io:
+- Converted monetary into physical units of energy
+- Conducted ENA
+
+*GUAN Y, 2019, ENVIRON POLLUT | ISI:000452940700031*
+:waste:control:ena:
+- Uses control analysis to examine an industrial solid waste system in
+GuangDong
+
+*CHEN S, 2016, APPL ENERGY | ISI:000389785200076*
+:urban:io:structure:energy:
+- Proposes a framework for analyzing energy and water use using an Urban Nexus Network
+- Uses embodied energy and water via an IO model
+- Uses structural analysis as well
+- Compares the structure of various sectors
+- Supports several points of intervention that can increase
+  sustainability of energy and water simultaneously
+
+*MONTRESOR S, 2009, ECON SYST RES | ISI:000273938700003*
+:sna:io:scaling:
+- Examines and lays out issues with applying SNA to IO flow matrices
+- SNA need to apppropriately account for Final Demand
+- Should relativize in order to avoid scaling problems
+- Work with density distributions in order to avoid discrete cut-offs
+
+*BORRETT SR, 2011, ECOL MODEL-a | ISI:000292581400011*
+:ena:io:metrics:
+- Develops mathematical analysis of ENA and IO metrics
+
+*SUN X, 2018, J CLEAN PROD | ISI:000424727100050*
+:io:china:
+- Analyzes 2012 IO table for China
+- Uses EEIO, emergy and complex network synthetically
+- Identified sectors with impacts on environment
+- Non-metal mining is the most energy intensive
 
 
+## Thu Sep 10 14:47:16 EDT 2020
+
+*PRELL C, 2016, SOC SCI J | ISI:000371797100013*
+:io:pollution:
+- Analyzes 20 years of pollution and wealth data
+- Uses Input-Output analysis
+- Found correlations between wealth and exports stronger than pollution
+
+*WANG Z, 2018, J ENVIRON MANAGE | ISI:000446147000004*
+:io:structure:china:
+- Analyzes supply chain data for Jing-Jin-Ji
+- Uses a combo of input-output, power-of-pull and structural path analysis
+- Beijing and Hebei are key
+
+## Wed Sep  9 16:30:03 EDT 2020
+:energy:io:mrio:global:structure:
+*CHEN B, 2018, APPL ENERGY | ISI:000419813100008*
+
+- Energy embodied in trade
+- Found small world and scale-free (degree/strength)
+- Found 4 regional communities
+- Centrality detected USA, China and Germany
+- Also evaluated security of energy
+
+*SCHAFFER-SMITH D, 2018, ECOL SOC | ISI:000454653700019*
+:soy:io:land:global:
+- Analyzed global soybean trade among countries 1986-2013
+- No trade patterns by region
+- Link between soybeans and deforestation
+
+*LI Z, 2017, J CLEAN PROD-a | ISI:000407185500007*
+:china:io:structure:
+- Analyzed trade network structure among sectors for China and Japan
+- Centrality analysis showed Japan was dominated by service industries
+- China industrial structure is still developing
+
+*TSEKERIS T, 2017, J ECON INTERACT COORD | ISI:000403494800010*
+:structure:io:greece:
+- Analyzed the Greek economy sector trade network
+- Used network structure analysis, centrality and clusters
+- Integrating value chains could improve efficiency
+
+## Fri Sep  4 14:30:29 EDT 2020
+
+*WANG S, 2018, APPL ENERGY-a | ISI:000445987200037*
+:china:io:mrio:control:
+- Constructed a energy-water network with China MRIO data
+- Conducted IO analysis
+- Conducted control analysis
+
+*YANG S, 2016, APPL ENERGY | ISI:000389785200074*
+:io:ena:control:air:
+- Assessed the sectoral embodied particular air pollution
+- Analyzed using IO and ENA
+- Conducted control analysis
+
+*WANG S, 2016, APPL ENERGY | ISI:000382340700062*
+:energy:water:nexus:io:control:ena:
+- Constructed an energy water nexus model for Beijing-Tianjin
+- Analyzed via IO and control analysis
+
+*ZHANG Y, 2016, J IND ECOL | ISI:000379692600009*
+:io:mrio:regional:
+- Constructed a China MRIO for 2002
+- Analyzed regional differences
+
+*GUO R, 2016, APPL ENERGY | ISI:000373863500010*
+:io:water:ena:
+- Water embodied in energy
+- IO/ENA
+
+*DU Q, 2018, ENVIRON SCI POLLUT RES | ISI:000441784000087*
+:carbon:structure:io:
+- Carbon emission flow network
+- Network analysis, including small world, average path length,
+  clustering, centrality
+
+*ZHANG Y, 2015, ENERGY POLICY-a | ISI000364246100058*
+:energy:io:ena:flow:structure:
+- Regional energy flow network from 2002 to 2007 in China
+- ENA, including integral flow analysis
+
+
+## Thu Sep  3 16:00:54 EDT 2020
+
+*WANG et al. 2019 J CLEAN PROD-a | ISI:000487237100022*
+:tianjian:china:material:control:
+- Constructed a material flow network model of Tianjian
+- Used Control Analysis
+
+*WANG S, 2019, APPL ENERGY | ISI:000454376900064*
+:io:control:
+- Used China IO sectoral table
+- Conducted control analysis
 
 ## Wed Sep  2 13:57:50 EDT 2020
 
-*ISI:000541775700008 Liang et al. 2020*
-
+*Liang et al. 2020 | ISI:000541775700008*
+:io:global:structure:mrio:
 - Analyzed a global metal flow network from 2009
 - Small world network, 2.7 steps to any other department
 - 10 communities, highly correlated with economic organizations
@@ -53,35 +211,34 @@ sid <- auth()
    - node strength (weighted)
    - centrality (weighted)
 
-*ISI:000470939600041 Zhai et al. 2019*
-
+*Zhai et al. 2019 | ISI:000470939600041*
+:china:io:ena:control:utility:ena:enaR:energy:
 - Analyzed urban energy metabolism in Guandong, China via ENA of IO tables
 - Used Control and Utility analyses via enaR
 - Found various patterns suggesting energy management strategies at
 the network scale
 
-ISI:000461262300005 Fang and Chen 2019
-
+*ISI:000461262300005 Fang and Chen 2019*
+:ena:ascendency:
 - Low quality paper, possibly not peer-reviewed
 - AMI/Ascendency analysis of carbon network
 - Found a negative correlation between efficiency and redundancy
 
-ISI:000464891000048 Liu et al. 2019
-
+*ISI:000464891000048 Liu et al. 2019*
+:water:land:china:mrio:ena:
 - Analyzed inter-provincial food-related virtual water and land network
 - Examined interconnectedness via ENA
 - This is one of a series of papers from Saige Wang and colleagues of
 embodied energy, water and land mostly using control analysis
 - See Research Gate
 
-ISI:000461410100050 Zheng et al. 2019
-
+*ISI:000461410100050 Zheng et al. 2019*
+:ena:io:waste:
 - ENA and IO analysis of wastewater in Guangdong
 - Qunatified direct and indirect wastewater sources and impacts with
   potential strategies for mitigation
 
 See wos_review_tags.md -> %%% You're here mark %%%
-
 
 
 ## Wed Aug 5 09:28:45 EDT 2020
